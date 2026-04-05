@@ -10,8 +10,10 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.82.0",
     "@hookform/resolvers": "^5.2.2",
     "@supabase/supabase-js": "^2.46.2",
+    "fuse.js": "^7.3.0",
     "i18next": "^26.0.3",
     "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^1.7.0",
