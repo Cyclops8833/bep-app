@@ -37,7 +37,7 @@ function IngredientForm({
       name:          editing?.name          ?? '',
       unit:          editing?.unit          ?? 'kg',
       current_price: editing?.current_price ?? 0,
-      supplier_id:   editing?.supplier_id   ?? null,
+      supplier_id:   editing?.supplier_id   ?? '',
     },
   })
 
