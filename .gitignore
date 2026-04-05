@@ -29,3 +29,6 @@ Thumbs.db
 
 # Vercel
 .vercel/
+
+# Local dev tools
+get-shit-done/
