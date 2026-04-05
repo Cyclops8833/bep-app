@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { Camera, ChefHat, TrendingUp } from 'lucide-react'
 
 export default function Landing() {
-  const { t } = useTranslation()
+  const { i18n } = useTranslation()
+  const t = i18n.getFixedT('vi')
 
   return (
     <div className="min-h-screen bg-bep-rice">
