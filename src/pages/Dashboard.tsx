@@ -15,13 +15,14 @@ import { useProfile } from '../hooks/useProfile'
 import Suppliers from './Suppliers'
 import Ingredients from './Ingredients'
 import Recipes from './Recipes'
+import Invoices from './Invoices'
 
 const navItems = [
   { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
   { to: '/dashboard/recipes',     label: 'nav.recipes',     icon: BookOpen },
-  { to: '/dashboard/ingredients', label: 'nav.ingredients', icon: Package },
+  { to: '/dashboard/invoices',    label: 'nav.invoices',    icon: FileText },    // D-11: position 3
   { to: '/dashboard/suppliers',   label: 'nav.suppliers',   icon: Truck },
-  { to: '/dashboard/invoices',    label: 'nav.invoices',    icon: FileText },
+  { to: '/dashboard/ingredients', label: 'nav.ingredients', icon: Package },
   { to: '/dashboard/revenue',     label: 'nav.revenue',     icon: TrendingUp },
   { to: '/dashboard/vat',         label: 'nav.vat',         icon: Receipt },
 ]
@@ -91,7 +92,8 @@ export default function Dashboard() {
           <Route path="recipes"     element={<Recipes />} />
           <Route path="ingredients" element={<Ingredients />} />
           <Route path="suppliers"   element={<Suppliers />} />
-          <Route path="invoices"    element={<Placeholder labelKey="nav.invoices" />} />
+          <Route path="invoices"         element={<Invoices />} />
+          <Route path="invoices/confirm" element={<Placeholder labelKey="invoices.title" />} />
           <Route path="revenue"     element={<Placeholder labelKey="nav.revenue" />} />
           <Route path="vat"         element={<Placeholder labelKey="nav.vat" />} />
         </Routes>
