@@ -77,6 +77,31 @@
     },
     "finish": "Bắt đầu dùng Bếp"
   },
+  "recipes": {
+    "title": "Công thức",
+    "add": "Thêm món",
+    "edit": "Sửa món",
+    "name_label": "Tên món",
+    "name_placeholder": "Ví dụ: Phở bò",
+    "price_label": "Giá bán (VND)",
+    "price_placeholder": "85000",
+    "category_label": "Danh mục",
+    "category_placeholder": "Ví dụ: Món chính",
+    "ingredients_section": "Nguyên liệu",
+    "add_line": "Thêm nguyên liệu",
+    "col_ingredient": "Nguyên liệu",
+    "col_quantity": "Số lượng",
+    "col_cost": "Chi phí",
+    "total_cost": "Tổng chi phí",
+    "selling_price": "Giá bán",
+    "margin_label": "Biên lợi nhuận",
+    "cost_label": "Chi phí",
+    "empty_title": "Chưa có món ăn",
+    "empty_body": "Thêm món ăn để tính giá thành và biên lợi nhuận",
+    "delete_confirm": "Xoá món ăn này?",
+    "no_ingredients_warning": "Thêm ít nhất 1 nguyên liệu",
+    "select_ingredient": "Chọn nguyên liệu..."
+  },
   "units": {
     "g": "g", "kg": "kg", "ml": "ml", "L": "L",
     "piece": "cái", "bunch": "bó", "bottle": "chai"

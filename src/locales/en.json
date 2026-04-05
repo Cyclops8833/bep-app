@@ -77,6 +77,31 @@
     },
     "finish": "Get started with Bep"
   },
+  "recipes": {
+    "title": "Recipes",
+    "add": "Add recipe",
+    "edit": "Edit recipe",
+    "name_label": "Dish name",
+    "name_placeholder": "e.g. Beef Pho",
+    "price_label": "Selling price (VND)",
+    "price_placeholder": "85000",
+    "category_label": "Category",
+    "category_placeholder": "e.g. Mains",
+    "ingredients_section": "Ingredients",
+    "add_line": "Add ingredient",
+    "col_ingredient": "Ingredient",
+    "col_quantity": "Quantity",
+    "col_cost": "Cost",
+    "total_cost": "Total cost",
+    "selling_price": "Selling price",
+    "margin_label": "Gross margin",
+    "cost_label": "Cost",
+    "empty_title": "No recipes yet",
+    "empty_body": "Add a recipe to start calculating dish costs and margins",
+    "delete_confirm": "Delete this recipe?",
+    "no_ingredients_warning": "Add at least 1 ingredient",
+    "select_ingredient": "Select ingredient..."
+  },
   "units": {
     "g": "g", "kg": "kg", "ml": "ml", "L": "L",
     "piece": "piece", "bunch": "bunch", "bottle": "bottle"

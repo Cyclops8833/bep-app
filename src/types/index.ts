@@ -39,6 +39,34 @@ export interface PriceHistoryEntry {
   recorded_at: string
 }
 
+export interface MenuItem {
+  id: string
+  user_id: string
+  name: string
+  selling_price: number
+  category: string | null
+  created_at: string
+}
+
+export interface RecipeLineWithIngredient {
+  id: string
+  menu_item_id: string
+  ingredient_id: string
+  quantity: number
+  ingredients: {
+    id: string
+    name: string
+    unit: Unit
+    current_price: number
+  }
+}
+
+export interface MenuItemWithCost extends MenuItem {
+  recipe_lines: RecipeLineWithIngredient[]
+  cost_per_dish: number
+  gross_margin: number
+}
+
 export interface IngredientWithRelations extends Ingredient {
   suppliers: { id: string; name: string } | null
   ingredient_price_history: { price: number; recorded_at: string }[]

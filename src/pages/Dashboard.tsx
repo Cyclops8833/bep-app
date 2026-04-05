@@ -14,6 +14,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { useProfile } from '../hooks/useProfile'
 import Suppliers from './Suppliers'
 import Ingredients from './Ingredients'
+import Recipes from './Recipes'
 
 const navItems = [
   { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
@@ -87,7 +88,7 @@ export default function Dashboard() {
       <main className="flex-1 min-w-0">
         <Routes>
           <Route index element={<Placeholder labelKey="nav.dashboard" />} />
-          <Route path="recipes"     element={<Placeholder labelKey="nav.recipes" />} />
+          <Route path="recipes"     element={<Recipes />} />
           <Route path="ingredients" element={<Ingredients />} />
           <Route path="suppliers"   element={<Suppliers />} />
           <Route path="invoices"    element={<Placeholder labelKey="nav.invoices" />} />
