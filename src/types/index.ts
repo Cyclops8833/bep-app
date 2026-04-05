@@ -122,3 +122,33 @@ export interface ExtractedInvoice {
 export type ExtractionSuccess = { ok: true; data: ExtractedInvoice }
 export type ExtractionFailure = { ok: false; fallback: true; error: string }
 export type ExtractionResponse = ExtractionSuccess | ExtractionFailure
+
+// --- Revenue Entry (Phase 6) ---
+
+export interface RevenueEntry {
+  id:              string
+  user_id:         string
+  entry_date:      string        // ISO date 'YYYY-MM-DD'
+  lump_sum_amount: number
+  notes:           string | null
+  created_at:      string
+  updated_at:      string
+  revenue_entry_dishes?: RevenueEntryDish[]
+}
+
+export interface RevenueEntryDish {
+  id:               string
+  revenue_entry_id: string
+  recipe_id:        string
+  user_id:          string
+  quantity:         number
+  created_at:       string
+  menu_items?:      { id: string; name: string }
+}
+
+export type RevenueEntryInput = Pick<RevenueEntry, 'entry_date' | 'lump_sum_amount' | 'notes'>
+
+export type DishInput = {
+  recipe_id: string
+  quantity:  number
+}
