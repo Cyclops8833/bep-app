@@ -44,7 +44,7 @@ export default function Dashboard() {
       {/* Sidebar */}
       <aside className="w-[220px] bg-bep-surface border-r border-bep-pebble flex flex-col shrink-0">
         <div className="px-5 py-4 border-b border-bep-pebble">
-          <p className="font-brand text-xl text-bep-lacquer" style={{ letterSpacing: '-0.02em' }}>Bếp</p>
+          <p className="font-ui text-xl font-medium text-bep-lacquer" style={{ letterSpacing: '-0.02em' }}>Bếp</p>
           {profile && (
             <p className="text-xs text-bep-stone mt-0.5 truncate">{profile.business_name}</p>
           )}

@@ -53,7 +53,7 @@ export default function Login() {
     <div className="min-h-screen bg-bep-rice flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-sm">
 
-        <p className="font-brand text-2xl text-bep-lacquer text-center mb-8" style={{ letterSpacing: '-0.02em' }}>
+        <p className="font-ui text-2xl font-medium text-bep-lacquer text-center mb-8" style={{ letterSpacing: '-0.02em' }}>
           Bếp
         </p>
 

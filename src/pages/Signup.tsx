@@ -55,7 +55,7 @@ export default function Signup() {
     return (
       <div className="min-h-screen bg-bep-rice flex flex-col items-center justify-center px-4">
         <div className="w-full max-w-sm">
-          <p className="font-brand text-2xl text-bep-lacquer text-center mb-8" style={{ letterSpacing: '-0.02em' }}>
+          <p className="font-ui text-2xl font-medium text-bep-lacquer text-center mb-8" style={{ letterSpacing: '-0.02em' }}>
             Bếp
           </p>
           <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
@@ -73,7 +73,7 @@ export default function Signup() {
     <div className="min-h-screen bg-bep-rice flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-sm">
 
-        <p className="font-brand text-2xl text-bep-lacquer text-center mb-8" style={{ letterSpacing: '-0.02em' }}>
+        <p className="font-ui text-2xl font-medium text-bep-lacquer text-center mb-8" style={{ letterSpacing: '-0.02em' }}>
           Bếp
         </p>
 
