@@ -188,6 +188,53 @@
     "no_lines_extracted": "Không trích xuất được dòng nào. Bạn có thể xác nhận thông tin nhà cung cấp.",
     "confirm_save": "Xác nhận và lưu"
   },
+  "landing": {
+    "hero": {
+      "tagline": "Quản lý bếp. Hiểu rõ lợi nhuận.",
+      "body": "Bếp giúp chủ quán café và nhà hàng Việt Nam theo dõi chi phí nguyên liệu, tính giá thành món ăn và nắm rõ biên lợi nhuận — tất cả trong một công cụ đơn giản.",
+      "cta_signup": "Dùng thử miễn phí",
+      "cta_login": "Đăng nhập"
+    },
+    "features": {
+      "heading": "Mọi thứ bạn cần để quản lý bếp hiệu quả",
+      "invoice": {
+        "title": "Chụp hoá đơn bằng AI",
+        "body": "Chụp ảnh hoá đơn từ nhà cung cấp — Bếp tự động đọc tên hàng, số lượng và đơn giá, cập nhật ngay vào kho nguyên liệu."
+      },
+      "recipe": {
+        "title": "Tính giá thành tự động",
+        "body": "Thêm công thức món ăn với nguyên liệu và định lượng. Bếp tính chi phí thực tế theo giá mới nhất của từng nguyên liệu."
+      },
+      "margin": {
+        "title": "Theo dõi biên lợi nhuận",
+        "body": "Xem ngay món nào đang lãi, món nào cần xem lại. Khi giá nguyên liệu thay đổi, biên lợi nhuận cập nhật tức thì."
+      }
+    },
+    "how": {
+      "heading": "Bắt đầu chỉ trong 3 bước",
+      "step1": {
+        "label": "Bước 1",
+        "title": "Chụp hoá đơn",
+        "body": "Dùng điện thoại chụp hoá đơn từ nhà cung cấp. AI phân tích và nhập giá nguyên liệu tự động."
+      },
+      "step2": {
+        "label": "Bước 2",
+        "title": "Tạo công thức món ăn",
+        "body": "Thêm món ăn cùng định lượng nguyên liệu. Chi phí được tính tức thì theo giá thực tế."
+      },
+      "step3": {
+        "label": "Bước 3",
+        "title": "Nắm rõ lợi nhuận",
+        "body": "Xem biên lợi nhuận từng món. Điều chỉnh giá bán hoặc công thức khi cần thiết."
+      }
+    },
+    "cta_footer": {
+      "heading": "Sẵn sàng quản lý bếp thông minh hơn?",
+      "body": "Miễn phí để bắt đầu. Không cần thẻ tín dụng.",
+      "cta_signup": "Tạo tài khoản miễn phí",
+      "cta_login": "Đã có tài khoản? Đăng nhập"
+    }
+  },
   "nav": {
     "dashboard": "Tổng quan",
     "recipes": "Công thức",

@@ -188,6 +188,53 @@
     "no_lines_extracted": "No lines could be extracted. You can still confirm the supplier details.",
     "confirm_save": "Confirm and save"
   },
+  "landing": {
+    "hero": {
+      "tagline": "Run your kitchen. Know your margins.",
+      "body": "Bep helps Vietnamese café and restaurant owners track ingredient costs, cost their dishes, and understand profit margins — all in one simple tool.",
+      "cta_signup": "Start for free",
+      "cta_login": "Log in"
+    },
+    "features": {
+      "heading": "Everything you need to run a profitable kitchen",
+      "invoice": {
+        "title": "AI invoice capture",
+        "body": "Photograph a supplier invoice and Bep reads the items, quantities, and prices automatically — updating your ingredient costs in real time."
+      },
+      "recipe": {
+        "title": "Automatic dish costing",
+        "body": "Build recipes with ingredients and quantities. Bep calculates actual cost using your latest ingredient prices, always up to date."
+      },
+      "margin": {
+        "title": "Margin health tracking",
+        "body": "See instantly which dishes are profitable and which need attention. When ingredient prices change, margins update immediately."
+      }
+    },
+    "how": {
+      "heading": "Up and running in 3 steps",
+      "step1": {
+        "label": "Step 1",
+        "title": "Photograph your invoices",
+        "body": "Use your phone to snap supplier invoices. AI reads and imports ingredient prices automatically."
+      },
+      "step2": {
+        "label": "Step 2",
+        "title": "Build your recipes",
+        "body": "Add dishes with ingredient quantities. Cost is calculated instantly from real prices."
+      },
+      "step3": {
+        "label": "Step 3",
+        "title": "See your margins",
+        "body": "View margin health per dish. Adjust your selling price or recipe when needed."
+      }
+    },
+    "cta_footer": {
+      "heading": "Ready to run a smarter kitchen?",
+      "body": "Free to start. No credit card required.",
+      "cta_signup": "Create a free account",
+      "cta_login": "Already have an account? Log in"
+    }
+  },
   "nav": {
     "dashboard": "Dashboard",
     "recipes": "Recipes",
