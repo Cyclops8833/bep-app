@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --bep-lacquer:    #7C2D12;
+    --bep-turmeric:   #B45309;
+    --bep-amber:      #D97706;
+    --bep-cream:      #FEF3C7;
+    --bep-rice:       #FAFAF9;
+    --bep-charcoal:   #1C1917;
+    --bep-stone:      #78716C;
+    --bep-pebble:     #E7E5E4;
+    --bep-surface:    #FFFFFF;
+    --bep-profit:     #059669;
+    --bep-profit-bg:  #D1FAE5;
+    --bep-loss:       #DC2626;
+    --bep-loss-bg:    #FEE2E2;
+    --bep-warning:    #D97706;
+    --bep-warning-bg: #FEF3C7;
+
+    --font-ui:    'Be Vietnam Pro', 'Inter', sans-serif;
+    --font-brand: Georgia, 'Times New Roman', serif;
+    --font-mono:  'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  html {
+    font-family: var(--font-ui);
+    background-color: var(--bep-rice);
+    color: var(--bep-charcoal);
+    -webkit-font-smoothing: antialiased;
+  }
+}
