@@ -41,11 +41,11 @@ export function useIngredients() {
   const updateIngredient = async (id: string, values: IngredientInput): Promise<boolean> => {
     const current = ingredients.find(i => i.id === id)
 
-    // Record old price to history if price changed
+    // Record new price to history if price changed
     if (current && values.current_price !== current.current_price) {
       await supabase.from('ingredient_price_history').insert({
         ingredient_id: id,
-        price: current.current_price,
+        price: values.current_price,
       })
     }
 
