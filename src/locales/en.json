@@ -6,7 +6,9 @@
     "continue": "Continue",
     "back": "Back",
     "loading": "Loading...",
-    "sign_out": "Sign out"
+    "sign_out": "Sign out",
+    "edit": "Edit",
+    "delete": "Delete"
   },
   "auth": {
     "or": "or",
@@ -74,6 +76,47 @@
       "en": "English"
     },
     "finish": "Get started with Bep"
+  },
+  "units": {
+    "g": "g", "kg": "kg", "ml": "ml", "L": "L",
+    "piece": "piece", "bunch": "bunch", "bottle": "bottle"
+  },
+  "suppliers": {
+    "title": "Suppliers",
+    "add": "Add supplier",
+    "edit": "Edit supplier",
+    "name_label": "Supplier name",
+    "name_placeholder": "e.g. Fresh Produce Co.",
+    "phone_label": "Phone",
+    "phone_placeholder": "0912 345 678",
+    "notes_label": "Notes",
+    "notes_placeholder": "Delivers Mon, Wed, Fri...",
+    "col_name": "Name",
+    "col_phone": "Phone",
+    "col_notes": "Notes",
+    "empty_title": "No suppliers yet",
+    "empty_body": "Add a supplier to link to ingredients and invoices",
+    "delete_confirm": "Delete this supplier?"
+  },
+  "ingredients": {
+    "title": "Ingredients",
+    "add": "Add ingredient",
+    "edit": "Edit ingredient",
+    "name_label": "Ingredient name",
+    "name_placeholder": "e.g. Beef",
+    "unit_label": "Unit",
+    "price_label": "Current price (VND)",
+    "price_placeholder": "75000",
+    "supplier_label": "Supplier",
+    "supplier_none": "None",
+    "col_name": "Name",
+    "col_unit": "Unit",
+    "col_price": "Price",
+    "col_supplier": "Supplier",
+    "col_history": "Price history",
+    "empty_title": "No ingredients yet",
+    "empty_body": "Add ingredients to start costing your recipes",
+    "delete_confirm": "Delete this ingredient?"
   },
   "nav": {
     "dashboard": "Dashboard",

@@ -6,7 +6,9 @@
     "continue": "Tiếp tục",
     "back": "Quay lại",
     "loading": "Đang tải...",
-    "sign_out": "Đăng xuất"
+    "sign_out": "Đăng xuất",
+    "edit": "Sửa",
+    "delete": "Xoá"
   },
   "auth": {
     "or": "hoặc",
@@ -74,6 +76,47 @@
       "en": "English"
     },
     "finish": "Bắt đầu dùng Bếp"
+  },
+  "units": {
+    "g": "g", "kg": "kg", "ml": "ml", "L": "L",
+    "piece": "cái", "bunch": "bó", "bottle": "chai"
+  },
+  "suppliers": {
+    "title": "Nhà cung cấp",
+    "add": "Thêm nhà cung cấp",
+    "edit": "Sửa nhà cung cấp",
+    "name_label": "Tên nhà cung cấp",
+    "name_placeholder": "Ví dụ: Rau sạch Hà Nội",
+    "phone_label": "Số điện thoại",
+    "phone_placeholder": "0912 345 678",
+    "notes_label": "Ghi chú",
+    "notes_placeholder": "Giao hàng thứ 2, 4, 6...",
+    "col_name": "Tên",
+    "col_phone": "Điện thoại",
+    "col_notes": "Ghi chú",
+    "empty_title": "Chưa có nhà cung cấp",
+    "empty_body": "Thêm nhà cung cấp để liên kết với nguyên liệu và hoá đơn",
+    "delete_confirm": "Xoá nhà cung cấp này?"
+  },
+  "ingredients": {
+    "title": "Nguyên liệu",
+    "add": "Thêm nguyên liệu",
+    "edit": "Sửa nguyên liệu",
+    "name_label": "Tên nguyên liệu",
+    "name_placeholder": "Ví dụ: Thịt bò",
+    "unit_label": "Đơn vị",
+    "price_label": "Giá hiện tại (VND)",
+    "price_placeholder": "75000",
+    "supplier_label": "Nhà cung cấp",
+    "supplier_none": "Không có",
+    "col_name": "Tên",
+    "col_unit": "Đơn vị",
+    "col_price": "Giá",
+    "col_supplier": "Nhà cung cấp",
+    "col_history": "Lịch sử giá",
+    "empty_title": "Chưa có nguyên liệu",
+    "empty_body": "Thêm nguyên liệu để bắt đầu tính giá thành món ăn",
+    "delete_confirm": "Xoá nguyên liệu này?"
   },
   "nav": {
     "dashboard": "Tổng quan",

@@ -12,6 +12,8 @@ import {
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import { useProfile } from '../hooks/useProfile'
+import Suppliers from './Suppliers'
+import Ingredients from './Ingredients'
 
 const navItems = [
   { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
@@ -86,8 +88,8 @@ export default function Dashboard() {
         <Routes>
           <Route index element={<Placeholder labelKey="nav.dashboard" />} />
           <Route path="recipes"     element={<Placeholder labelKey="nav.recipes" />} />
-          <Route path="ingredients" element={<Placeholder labelKey="nav.ingredients" />} />
-          <Route path="suppliers"   element={<Placeholder labelKey="nav.suppliers" />} />
+          <Route path="ingredients" element={<Ingredients />} />
+          <Route path="suppliers"   element={<Suppliers />} />
           <Route path="invoices"    element={<Placeholder labelKey="nav.invoices" />} />
           <Route path="revenue"     element={<Placeholder labelKey="nav.revenue" />} />
           <Route path="vat"         element={<Placeholder labelKey="nav.vat" />} />

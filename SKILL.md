@@ -121,7 +121,8 @@ Why Be Vietnam Pro: designed specifically for Vietnamese diacriticals (ắ, ộ,
 ### Type scale
 
 ```
-Brand wordmark:   font-family: Georgia; font-size: 24px; font-weight: 400; color: --bep-lacquer; letter-spacing: -0.02em
+Brand wordmark:   font-family: 'Be Vietnam Pro'; font-size: 24px; font-weight: 500; color: --bep-lacquer; letter-spacing: -0.02em
+Note: Georgia was originally specified but does not support Vietnamese diacritics — always use Be Vietnam Pro for the wordmark.
 Page heading h1:  18px / 500 / --bep-charcoal
 Section heading h2: 15px / 500 / --bep-charcoal
 Label / caption:  11px / 500 / --bep-stone; text-transform: uppercase; letter-spacing: 0.07em
