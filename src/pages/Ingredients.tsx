@@ -79,7 +79,7 @@ function IngredientForm({
           <input
             type="number"
             min={0}
-            step={100}
+            step={1}
             {...register('current_price', { valueAsNumber: true })}
             placeholder={t('ingredients.price_placeholder')}
             className="w-full bg-bep-surface border border-bep-pebble rounded-lg px-3 py-2 text-sm text-bep-charcoal placeholder:text-bep-stone focus:outline-none focus:border-bep-turmeric transition-colors font-mono tabular-nums"
