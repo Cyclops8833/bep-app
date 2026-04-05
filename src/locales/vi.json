@@ -1,0 +1,87 @@
+{
+  "common": {
+    "app_name": "Bếp",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "continue": "Tiếp tục",
+    "back": "Quay lại",
+    "loading": "Đang tải...",
+    "sign_out": "Đăng xuất"
+  },
+  "auth": {
+    "or": "hoặc",
+    "login": {
+      "title": "Đăng nhập",
+      "subtitle": "Chào mừng trở lại Bếp",
+      "email": "Email",
+      "password": "Mật khẩu",
+      "submit": "Đăng nhập",
+      "google": "Tiếp tục với Google",
+      "no_account": "Chưa có tài khoản?",
+      "signup_link": "Đăng ký ngay"
+    },
+    "signup": {
+      "title": "Tạo tài khoản",
+      "subtitle": "Bắt đầu miễn phí, không cần thẻ",
+      "email": "Email",
+      "password": "Mật khẩu",
+      "submit": "Tạo tài khoản",
+      "google": "Tiếp tục với Google",
+      "has_account": "Đã có tài khoản?",
+      "login_link": "Đăng nhập",
+      "check_email": "Kiểm tra email của bạn",
+      "check_email_body": "Chúng tôi đã gửi link xác nhận đến {{email}}. Vui lòng kiểm tra hộp thư."
+    },
+    "error": {
+      "invalid_credentials": "Email hoặc mật khẩu không đúng",
+      "email_taken": "Email này đã được sử dụng",
+      "generic": "Đã có lỗi xảy ra. Vui lòng thử lại."
+    }
+  },
+  "onboarding": {
+    "title": "Thiết lập tài khoản",
+    "step": "Bước {{current}} / {{total}}",
+    "step1": {
+      "title": "Tên doanh nghiệp",
+      "label": "Tên quán hoặc nhà hàng của bạn",
+      "placeholder": "Ví dụ: Quán Phở Hương"
+    },
+    "step2": {
+      "title": "Loại hình kinh doanh",
+      "label": "Quán của bạn thuộc loại hình nào?"
+    },
+    "step3": {
+      "title": "Địa điểm & Thuế",
+      "city_label": "Thành phố",
+      "city_placeholder": "Ví dụ: Hà Nội, TP.HCM",
+      "vat_label": "Đăng ký thuế VAT?",
+      "vat_yes": "Có",
+      "vat_no": "Chưa"
+    },
+    "step4": {
+      "title": "Ngôn ngữ",
+      "label": "Chọn ngôn ngữ hiển thị"
+    },
+    "outlet": {
+      "cafe": "Quán cà phê",
+      "restaurant": "Nhà hàng",
+      "street_food": "Quán ăn vỉa hè",
+      "bakery": "Tiệm bánh",
+      "other": "Khác"
+    },
+    "lang": {
+      "vi": "Tiếng Việt",
+      "en": "English"
+    },
+    "finish": "Bắt đầu dùng Bếp"
+  },
+  "nav": {
+    "dashboard": "Tổng quan",
+    "recipes": "Công thức",
+    "ingredients": "Nguyên liệu",
+    "suppliers": "Nhà cung cấp",
+    "invoices": "Hoá đơn",
+    "revenue": "Doanh thu",
+    "vat": "Thuế VAT"
+  }
+}

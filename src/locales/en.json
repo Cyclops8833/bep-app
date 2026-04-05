@@ -1,0 +1,87 @@
+{
+  "common": {
+    "app_name": "Bep",
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "loading": "Loading...",
+    "sign_out": "Sign out"
+  },
+  "auth": {
+    "or": "or",
+    "login": {
+      "title": "Log in",
+      "subtitle": "Welcome back to Bep",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Log in",
+      "google": "Continue with Google",
+      "no_account": "Don't have an account?",
+      "signup_link": "Sign up"
+    },
+    "signup": {
+      "title": "Create account",
+      "subtitle": "Free to start, no credit card",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create account",
+      "google": "Continue with Google",
+      "has_account": "Already have an account?",
+      "login_link": "Log in",
+      "check_email": "Check your email",
+      "check_email_body": "We sent a confirmation link to {{email}}. Please check your inbox."
+    },
+    "error": {
+      "invalid_credentials": "Invalid email or password",
+      "email_taken": "This email is already in use",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "onboarding": {
+    "title": "Set up your account",
+    "step": "Step {{current}} of {{total}}",
+    "step1": {
+      "title": "Business name",
+      "label": "Your restaurant or café name",
+      "placeholder": "e.g. Phở Hương Restaurant"
+    },
+    "step2": {
+      "title": "Business type",
+      "label": "What type of outlet do you run?"
+    },
+    "step3": {
+      "title": "Location & Tax",
+      "city_label": "City",
+      "city_placeholder": "e.g. Hanoi, Ho Chi Minh City",
+      "vat_label": "VAT registered?",
+      "vat_yes": "Yes",
+      "vat_no": "No"
+    },
+    "step4": {
+      "title": "Language",
+      "label": "Choose your display language"
+    },
+    "outlet": {
+      "cafe": "Café",
+      "restaurant": "Restaurant",
+      "street_food": "Street food",
+      "bakery": "Bakery",
+      "other": "Other"
+    },
+    "lang": {
+      "vi": "Vietnamese",
+      "en": "English"
+    },
+    "finish": "Get started with Bep"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "recipes": "Recipes",
+    "ingredients": "Ingredients",
+    "suppliers": "Suppliers",
+    "invoices": "Invoices",
+    "revenue": "Revenue",
+    "vat": "VAT"
+  }
+}
