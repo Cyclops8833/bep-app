@@ -16,6 +16,7 @@ import Suppliers from './Suppliers'
 import Ingredients from './Ingredients'
 import Recipes from './Recipes'
 import Invoices from './Invoices'
+import InvoiceConfirm from './InvoiceConfirm'
 
 const navItems = [
   { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
@@ -93,7 +94,7 @@ export default function Dashboard() {
           <Route path="ingredients" element={<Ingredients />} />
           <Route path="suppliers"   element={<Suppliers />} />
           <Route path="invoices"         element={<Invoices />} />
-          <Route path="invoices/confirm" element={<Placeholder labelKey="invoices.title" />} />
+          <Route path="invoices/confirm" element={<InvoiceConfirm />} />
           <Route path="revenue"     element={<Placeholder labelKey="nav.revenue" />} />
           <Route path="vat"         element={<Placeholder labelKey="nav.vat" />} />
         </Routes>
