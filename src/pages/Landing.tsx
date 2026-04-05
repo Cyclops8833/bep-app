@@ -1,18 +1,22 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Camera, ChefHat, TrendingUp } from 'lucide-react'
+import { Camera, ChefHat, TrendingUp, Check } from 'lucide-react'
 
 export default function Landing() {
   const { i18n } = useTranslation()
   const t = i18n.getFixedT('vi')
 
+  const freeFeatures = ['f1', 'f2', 'f3', 'f4'] as const
+  const proFeatures = ['f1', 'f2', 'f3', 'f4', 'f5'] as const
+
   return (
     <div className="min-h-screen bg-bep-rice">
+
       {/* Nav */}
       <header className="h-14 bg-bep-surface border-b border-bep-pebble flex items-center px-6">
         <div className="max-w-5xl mx-auto w-full flex items-center justify-between">
           <span
-            className="text-2xl font-medium text-bep-lacquer tracking-tight"
+            className="text-2xl font-medium text-bep-lacquer"
             style={{ fontFamily: "'Be Vietnam Pro', sans-serif", letterSpacing: '-0.02em' }}
           >
             {t('common.app_name')}
@@ -34,7 +38,7 @@ export default function Landing() {
         </div>
       </header>
 
-      {/* Hero */}
+      {/* 1 — Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
         <h1
           className="text-4xl font-medium text-bep-charcoal mb-4"
@@ -61,8 +65,33 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Feature highlights */}
-      <section className="max-w-5xl mx-auto px-6 pb-16">
+      {/* 2 — Problem */}
+      <section className="border-y border-bep-pebble bg-bep-surface">
+        <div className="max-w-5xl mx-auto px-6 py-14 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-16 items-center">
+          <div>
+            <p className="text-base font-medium text-bep-charcoal mb-3 leading-snug">
+              {t('landing.problem.heading')}
+            </p>
+            <p className="text-sm text-bep-stone leading-relaxed">
+              {t('landing.problem.reason')}
+            </p>
+          </div>
+          <div className="bg-bep-cream border border-bep-pebble rounded-xl p-5 flex flex-col gap-3">
+            <p className="text-xs font-medium text-bep-stone uppercase tracking-wider">
+              {t('landing.problem.example_label')}
+            </p>
+            <p className="text-sm text-bep-charcoal leading-relaxed">
+              {t('landing.problem.example')}
+            </p>
+            <p className="text-sm font-medium text-bep-turmeric border-t border-bep-pebble pt-3">
+              {t('landing.problem.reframe')}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 — Features */}
+      <section className="max-w-5xl mx-auto px-6 py-16">
         <p className="text-xs font-medium text-bep-stone uppercase tracking-wider text-center mb-8">
           {t('landing.features.heading')}
         </p>
@@ -78,7 +107,6 @@ export default function Landing() {
               {t('landing.features.invoice.body')}
             </p>
           </div>
-
           <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
             <div className="w-9 h-9 rounded-full bg-bep-cream flex items-center justify-center mb-4">
               <ChefHat size={16} className="text-bep-turmeric" />
@@ -90,7 +118,6 @@ export default function Landing() {
               {t('landing.features.recipe.body')}
             </p>
           </div>
-
           <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
             <div className="w-9 h-9 rounded-full bg-bep-cream flex items-center justify-center mb-4">
               <TrendingUp size={16} className="text-bep-turmeric" />
@@ -105,59 +132,89 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* 4 — Pricing */}
       <section className="bg-bep-cream border-y border-bep-pebble">
         <div className="max-w-5xl mx-auto px-6 py-16">
-          <p className="text-xs font-medium text-bep-stone uppercase tracking-wider text-center mb-10">
-            {t('landing.how.heading')}
+          <h2
+            className="text-2xl font-medium text-bep-charcoal text-center mb-2"
+            style={{ letterSpacing: '-0.02em' }}
+          >
+            {t('landing.pricing.headline')}
+          </h2>
+          <p className="text-sm text-bep-stone text-center mb-10">
+            {t('landing.pricing.sub')}
           </p>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {(['step1', 'step2', 'step3'] as const).map((step, i) => (
-              <div key={step} className="flex flex-col items-start gap-3">
-                <div className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-bep-lacquer text-white text-xs font-medium flex items-center justify-center flex-shrink-0">
-                    {i + 1}
-                  </span>
-                  <span className="text-xs font-medium text-bep-stone uppercase tracking-wider">
-                    {t(`landing.how.${step}.label`)}
-                  </span>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-2xl mx-auto">
+
+            {/* Free tier */}
+            <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6 flex flex-col gap-4">
+              <div>
+                <p className="text-xs font-medium text-bep-stone uppercase tracking-wider mb-1">
+                  {t('landing.pricing.free.name')}
+                </p>
+                <p className="text-2xl font-medium text-bep-charcoal font-mono tabular-nums">
+                  {t('landing.pricing.free.price')}
+                </p>
+                <span className="inline-block mt-2 text-xs font-medium text-bep-turmeric bg-bep-cream border border-bep-pebble px-2 py-0.5 rounded-full">
+                  {t('landing.pricing.free.trial_badge')}
+                </span>
+              </div>
+              <div className="border-t border-bep-pebble pt-4 flex flex-col gap-2">
+                <p className="text-xs font-medium text-bep-stone uppercase tracking-wider mb-1">
+                  {t('landing.pricing.free.after_trial')}
+                </p>
+                {freeFeatures.map(f => (
+                  <div key={f} className="flex items-center gap-2">
+                    <Check size={13} className="text-bep-stone flex-shrink-0" />
+                    <span className="text-sm text-bep-stone">{t(`landing.pricing.free.${f}`)}</span>
+                  </div>
+                ))}
+              </div>
+              <Link
+                to="/signup"
+                className="mt-auto bg-transparent border border-bep-pebble hover:border-bep-turmeric hover:text-bep-turmeric text-bep-stone text-sm font-medium px-4 py-2 rounded-lg transition-colors text-center"
+              >
+                {t('landing.pricing.free.cta')}
+              </Link>
+            </div>
+
+            {/* Pro tier */}
+            <div className="bg-bep-surface border-2 border-bep-lacquer rounded-xl p-6 flex flex-col gap-4 relative">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-bep-lacquer text-white text-xs font-medium px-3 py-0.5 rounded-full whitespace-nowrap">
+                {t('landing.pricing.pro.badge')}
+              </span>
+              <div>
+                <p className="text-xs font-medium text-bep-stone uppercase tracking-wider mb-1">
+                  {t('landing.pricing.pro.name')}
+                </p>
+                <div className="flex items-baseline gap-0.5">
+                  <p className="text-2xl font-medium text-bep-charcoal font-mono tabular-nums">
+                    {t('landing.pricing.pro.price')}
+                  </p>
+                  <span className="text-sm text-bep-stone">{t('landing.pricing.pro.period')}</span>
                 </div>
-                <h2 className="text-sm font-medium text-bep-charcoal">
-                  {t(`landing.how.${step}.title`)}
-                </h2>
-                <p className="text-sm text-bep-stone leading-relaxed">
-                  {t(`landing.how.${step}.body`)}
+                <p className="text-xs text-bep-turmeric mt-1.5">
+                  {t('landing.pricing.pro.pho_note')}
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <div className="border-t border-bep-pebble pt-4 flex flex-col gap-2">
+                {proFeatures.map(f => (
+                  <div key={f} className="flex items-center gap-2">
+                    <Check size={13} className="text-bep-turmeric flex-shrink-0" />
+                    <span className="text-sm text-bep-charcoal">{t(`landing.pricing.pro.${f}`)}</span>
+                  </div>
+                ))}
+              </div>
+              <Link
+                to="/signup"
+                className="mt-auto bg-bep-lacquer hover:bg-bep-turmeric text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors text-center"
+              >
+                {t('landing.pricing.pro.cta')}
+              </Link>
+            </div>
 
-      {/* Footer CTA */}
-      <section className="max-w-5xl mx-auto px-6 py-16 text-center">
-        <h1
-          className="text-2xl font-medium text-bep-charcoal mb-3"
-          style={{ letterSpacing: '-0.02em' }}
-        >
-          {t('landing.cta_footer.heading')}
-        </h1>
-        <p className="text-sm text-bep-stone mb-8">
-          {t('landing.cta_footer.body')}
-        </p>
-        <div className="flex items-center justify-center gap-3">
-          <Link
-            to="/signup"
-            className="bg-bep-lacquer hover:bg-bep-turmeric text-white text-sm font-medium px-6 py-2.5 rounded-lg transition-colors"
-          >
-            {t('landing.cta_footer.cta_signup')}
-          </Link>
-          <Link
-            to="/login"
-            className="text-sm font-medium text-bep-turmeric hover:text-bep-amber transition-colors"
-          >
-            {t('landing.cta_footer.cta_login')}
-          </Link>
+          </div>
         </div>
       </section>
 
@@ -173,6 +230,7 @@ export default function Landing() {
           <span className="text-xs text-bep-stone">© 2026</span>
         </div>
       </footer>
+
     </div>
   )
 }

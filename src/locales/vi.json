@@ -233,6 +233,41 @@
       "body": "Miễn phí để bắt đầu. Không cần thẻ tín dụng.",
       "cta_signup": "Tạo tài khoản miễn phí",
       "cta_login": "Đã có tài khoản? Đăng nhập"
+    },
+    "problem": {
+      "heading": "Năm 2024, 60% quán F&B Việt Nam gặp khó về lợi nhuận — dù thị trường tăng trưởng 16%.",
+      "reason": "Không phải vì kinh doanh kém. Mà vì không biết món nào đang lỗ.",
+      "example_label": "Ví dụ thực tế",
+      "example": "Một món bán 40 tô/ngày, biên lợi nhuận giảm từ 30% xuống 10% vì giá thịt tăng — bạn đang mất 160.000 ₫ mỗi ngày mà không hay biết.",
+      "reframe": "Bep Pro tốn 6.600 ₫/ngày. Ít hơn nhiều so với khoản lỗ vô hình đó."
+    },
+    "pricing": {
+      "headline": "Biết chính xác bạn đang kiếm được bao nhiêu — mỗi ngày.",
+      "sub": "Bep Pro: 200.000 ₫/tháng. Ít hơn một tô phở mỗi tuần.",
+      "free": {
+        "name": "Miễn phí",
+        "trial_badge": "14 ngày dùng thử đầy đủ",
+        "price": "0 ₫",
+        "after_trial": "Sau 14 ngày, giới hạn còn lại:",
+        "f1": "10 công thức món ăn",
+        "f2": "20 nguyên liệu",
+        "f3": "10 lần chụp hoá đơn AI/tháng",
+        "f4": "Báo cáo tháng hiện tại",
+        "cta": "Dùng thử 14 ngày miễn phí"
+      },
+      "pro": {
+        "name": "Pro",
+        "badge": "Phổ biến nhất",
+        "price": "200.000 ₫",
+        "period": "/tháng",
+        "pho_note": "Ít hơn một tô phở mỗi tuần",
+        "f1": "Không giới hạn công thức",
+        "f2": "Không giới hạn nguyên liệu",
+        "f3": "Không giới hạn hoá đơn AI",
+        "f4": "Toàn bộ lịch sử báo cáo",
+        "f5": "Xuất báo cáo VAT (PDF)",
+        "cta": "Bắt đầu dùng Pro"
+      }
     }
   },
   "nav": {

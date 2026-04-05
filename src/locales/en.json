@@ -233,6 +233,41 @@
       "body": "Free to start. No credit card required.",
       "cta_signup": "Create a free account",
       "cta_login": "Already have an account? Log in"
+    },
+    "problem": {
+      "heading": "In 2024, 60% of Vietnamese F&B businesses struggled with profitability — despite the market growing 16%.",
+      "reason": "Not because business was bad. Because they didn't know which dishes were losing money.",
+      "example_label": "Real example",
+      "example": "A dish selling 40 bowls a day with margin down from 30% to 10% because pork prices rose — you're losing 160,000 ₫ daily without knowing it.",
+      "reframe": "Bep Pro costs 6,600 ₫ per day. Far less than that invisible loss."
+    },
+    "pricing": {
+      "headline": "Know exactly what you're making — every day.",
+      "sub": "Bep Pro: 200,000 ₫/month. Less than one bowl of pho per week.",
+      "free": {
+        "name": "Free",
+        "trial_badge": "14-day full trial",
+        "price": "0 ₫",
+        "after_trial": "After 14 days, limited to:",
+        "f1": "10 recipes",
+        "f2": "20 ingredients",
+        "f3": "10 AI invoice captures/month",
+        "f4": "Current month reporting",
+        "cta": "Start free 14-day trial"
+      },
+      "pro": {
+        "name": "Pro",
+        "badge": "Most popular",
+        "price": "200,000 ₫",
+        "period": "/month",
+        "pho_note": "Less than one bowl of pho per week",
+        "f1": "Unlimited recipes",
+        "f2": "Unlimited ingredients",
+        "f3": "Unlimited AI invoice captures",
+        "f4": "Full reporting history",
+        "f5": "VAT report export (PDF)",
+        "cta": "Start Pro"
+      }
     }
   },
   "nav": {
