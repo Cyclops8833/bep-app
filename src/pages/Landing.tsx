@@ -164,8 +164,8 @@ export default function Landing() {
           {t('landing.features.heading')}
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
-            <div className="w-14 h-14 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
+          <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6 flex flex-col items-center text-center">
+            <div className="w-20 h-20 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
               <InvoiceIllustration />
             </div>
             <h2 className="text-sm font-medium text-bep-charcoal mb-2">
@@ -175,8 +175,8 @@ export default function Landing() {
               {t('landing.features.invoice.body')}
             </p>
           </div>
-          <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
-            <div className="w-14 h-14 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
+          <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6 flex flex-col items-center text-center">
+            <div className="w-20 h-20 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
               <DishIllustration />
             </div>
             <h2 className="text-sm font-medium text-bep-charcoal mb-2">
@@ -186,8 +186,8 @@ export default function Landing() {
               {t('landing.features.recipe.body')}
             </p>
           </div>
-          <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
-            <div className="w-14 h-14 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
+          <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6 flex flex-col items-center text-center">
+            <div className="w-20 h-20 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
               <MarginIllustration />
             </div>
             <h2 className="text-sm font-medium text-bep-charcoal mb-2">
