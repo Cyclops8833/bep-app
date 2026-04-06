@@ -18,6 +18,7 @@ import Recipes from './Recipes'
 import Invoices from './Invoices'
 import InvoiceConfirm from './InvoiceConfirm'
 import Revenue from './Revenue'
+import PnLDashboard from './PnLDashboard'
 
 const navItems = [
   { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
@@ -90,7 +91,7 @@ export default function Dashboard() {
       {/* Content */}
       <main className="flex-1 min-w-0">
         <Routes>
-          <Route index element={<Placeholder labelKey="nav.dashboard" />} />
+          <Route index element={<PnLDashboard />} />
           <Route path="recipes"     element={<Recipes />} />
           <Route path="ingredients" element={<Ingredients />} />
           <Route path="suppliers"   element={<Suppliers />} />

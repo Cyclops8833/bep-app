@@ -351,7 +351,9 @@
     },
     "error": {
       "fetch": "Không thể tải dữ liệu. Vui lòng thử lại.",
-      "retry": "Thử lại"
+      "fetch_failed": "Không thể tải dữ liệu. Vui lòng thử lại.",
+      "retry": "Thử lại",
+      "dismiss_failed": "Không thể bỏ qua cảnh báo"
     },
     "empty": {
       "no_data": "Chưa có dữ liệu",

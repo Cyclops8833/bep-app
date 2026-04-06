@@ -1,5 +1,13 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
+import { render } from '@testing-library/react'
 import { validateCustomRange, getHealthTier } from '../lib/pnl'
+import { MetricCard } from '../components/features/MetricCard'
+import { HealthIndicator } from '../components/features/HealthIndicator'
+
+// Mock react-i18next so HealthIndicator (which calls t()) renders without a provider
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({ t: (key: string) => key }),
+}))
 
 describe('PeriodSelector validateCustomRange integration', () => {
   it('rejects ranges exceeding 90 days', () => {
@@ -40,15 +48,38 @@ describe('getHealthTier boundary coverage', () => {
   })
 })
 
-// Smoke tests for components created in Plan 07-02.
-// These use dynamic imports so the file compiles even before 07-02 runs.
-// Plan 07-02 executor: once MetricCard and HealthIndicator exist, convert
-// these to static imports and add render assertions.
-
 describe('MetricCard smoke', () => {
-  it.todo('renders without crash — pending 07-02 creating MetricCard')
+  it('renders without crash', () => {
+    const { container } = render(<MetricCard label="Revenue" value={1000000} />)
+    expect(container.textContent).toBeTruthy()
+  })
+
+  it('renders with custom valueColor', () => {
+    const { container } = render(
+      <MetricCard label="Net Profit" value={500000} valueColor="text-bep-profit" />
+    )
+    expect(container.textContent).toBeTruthy()
+  })
 })
 
 describe('HealthIndicator smoke', () => {
-  it.todo('renders without crash — pending 07-02 creating HealthIndicator')
+  it('renders profitable tier without crash', () => {
+    const { container } = render(<HealthIndicator tier="profitable" />)
+    expect(container.textContent).toBeTruthy()
+  })
+
+  it('renders watch tier without crash', () => {
+    const { container } = render(<HealthIndicator tier="watch" />)
+    expect(container.textContent).toBeTruthy()
+  })
+
+  it('renders loss tier without crash', () => {
+    const { container } = render(<HealthIndicator tier="loss" />)
+    expect(container.textContent).toBeTruthy()
+  })
+
+  it('renders null tier without crash', () => {
+    const { container } = render(<HealthIndicator tier={null} />)
+    expect(container.innerHTML).toBe('')
+  })
 })
