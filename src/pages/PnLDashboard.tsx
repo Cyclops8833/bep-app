@@ -12,7 +12,7 @@ import type { PnLPeriod } from '../types'
 
 export default function PnLDashboard() {
   const { t } = useTranslation()
-  const [period, setPeriod] = useState<PnLPeriod | null>(null)
+  const [period, setPeriod] = useState<PnLPeriod | null>('this_month')
   const { metrics, healthTier, chartData, costDrivers, loading, error, refetch } = usePnL(period)
   const { alerts, dismissAlert } = usePriceAlerts()
 
