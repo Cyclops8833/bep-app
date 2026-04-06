@@ -1,3 +1,4 @@
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, Routes, Route } from 'react-router-dom'
 import {
@@ -21,23 +22,15 @@ import Revenue from './Revenue'
 import PnLDashboard from './PnLDashboard'
 import VATPage from './VATPage'
 
-function Placeholder({ labelKey }: { labelKey: string }) {
-  const { t } = useTranslation()
-  return (
-    <div className="p-6">
-      <h1 className="text-lg font-medium text-bep-charcoal">{t(labelKey)}</h1>
-      <p className="text-sm text-bep-stone mt-1">Coming soon</p>
-    </div>
-  )
-}
+type NavItem = { to: string; label: string; icon: React.ElementType; end?: boolean }
 
 export default function Dashboard() {
   const { t } = useTranslation()
   const { signOut } = useAuth()
   const { profile } = useProfile()
 
-  const vatItem = { to: '/dashboard/vat', label: 'nav.vat', icon: Receipt }
-  const navItems = [
+  const vatItem: NavItem = { to: '/dashboard/vat', label: 'nav.vat', icon: Receipt }
+  const navItems: NavItem[] = [
     { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
     { to: '/dashboard/recipes',     label: 'nav.recipes',     icon: BookOpen },
     { to: '/dashboard/invoices',    label: 'nav.invoices',    icon: FileText },

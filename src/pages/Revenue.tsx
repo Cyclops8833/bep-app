@@ -140,7 +140,7 @@ function RevenueForm({ editing, entries, recipes, onSave, onCancel, formRef }: R
     setValue,
     formState: { errors },
   } = useForm<RevenueFormValues>({
-    resolver: zodResolver(revenueSchema),
+    resolver: zodResolver(revenueSchema) as any,
     defaultValues: {
       entry_date:      todayISO(),
       lump_sum_amount: undefined,

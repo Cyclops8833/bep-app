@@ -108,7 +108,7 @@ export function usePnL(period: PnLPeriod | null): UsePnLResult {
       const spendByIngredient: Record<string, { name: string; totalSpend: number }> = {}
 
       for (const inv of allInvoices) {
-        const lines = (inv.invoice_lines ?? []) as {
+        const lines = (inv.invoice_lines ?? []) as unknown as {
           line_total: number
           ingredient_id: string | null
           ingredients: { id: string; name: string } | null
