@@ -21,7 +21,7 @@ export function Drawer({ open, onClose, title, children, footer }: DrawerProps) 
   return (
     <>
       <div className="fixed inset-0 bg-black/20 z-40" onClick={onClose} />
-      <div className="fixed inset-y-0 right-0 w-[480px] bg-bep-surface border-l border-bep-pebble flex flex-col z-50">
+      <div className="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-bep-surface border-l border-bep-pebble flex flex-col z-50">
         <div className="flex items-center justify-between px-6 py-4 border-b border-bep-pebble">
           <h2 className="text-base font-medium text-bep-charcoal">{title}</h2>
           <button onClick={onClose} className="text-bep-stone hover:text-bep-charcoal transition-colors">

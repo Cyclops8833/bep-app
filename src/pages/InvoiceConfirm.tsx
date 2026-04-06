@@ -2,12 +2,10 @@ import { useEffect, useMemo, useState } from 'react'
 import { useForm, useFieldArray, Controller } from 'react-hook-form'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { toast } from 'sonner'
 import { ArrowLeft, Check } from 'lucide-react'
 import { useInvoices } from '../hooks/useInvoices'
 import { useIngredients } from '../hooks/useIngredients'
 import { useSuppliers } from '../hooks/useSuppliers'
-import { useRecipes } from '../hooks/useRecipes'
 import { matchIngredient, matchSupplier, confidenceCellClass } from '../lib/invoiceMatch'
 import { formatVND } from '../lib/format'
 import type { ExtractedInvoice, IngredientWithRelations } from '../types'
@@ -34,7 +32,6 @@ export default function InvoiceConfirm() {
   const { confirmInvoice }             = useInvoices()
   const { ingredients, updateIngredient } = useIngredients()
   const { suppliers }                  = useSuppliers()
-  const { recipes }                    = useRecipes()
   const [saving, setSaving]            = useState(false)
   const [supplierConfidence, setSupplierConfidence] = useState<'high' | 'low' | 'none'>('none')
 
@@ -88,37 +85,25 @@ export default function InvoiceConfirm() {
     setSaving(true)
 
     // T-5-09: Price updates only happen here, after explicit user confirmation
-    // Track which ingredient IDs were actually updated (price changed + update succeeded)
-    let ingredientCount = 0
-    const updatedIngredientIds: string[] = []
-
+    // Call updateIngredient for each confirmed matched line
     for (const line of values.lines) {
       if (!line.ingredient_id) continue
       const ingredient = (ingredients as IngredientWithRelations[]).find(i => i.id === line.ingredient_id)
       if (!ingredient) continue
       if (ingredient.current_price !== line.unit_price) {
-        const result = await updateIngredient(ingredient.id, {
+        await updateIngredient(ingredient.id, {
           name:          ingredient.name,
           unit:          ingredient.unit,
           current_price: line.unit_price,
           supplier_id:   ingredient.supplier_id ?? null,
         })
-        if (result.ok) {
-          ingredientCount++
-          updatedIngredientIds.push(ingredient.id)
-        }
       }
     }
-
-    // Count recipes that reference any of the updated ingredients
-    const recipeCount = recipes.filter(r =>
-      r.recipe_lines?.some((rl: { ingredient_id: string }) => updatedIngredientIds.includes(rl.ingredient_id))
-    ).length
 
     // Calculate total amount
     const totalAmount = values.lines.reduce((sum, l) => sum + (l.quantity * l.unit_price), 0)
 
-    const confirmResult = await confirmInvoice(
+    const ok = await confirmInvoice(
       invoiceId,
       values.supplier_id || null,
       values.invoice_date || null,
@@ -134,17 +119,7 @@ export default function InvoiceConfirm() {
     )
 
     setSaving(false)
-    if (confirmResult.ok) {
-      if (ingredientCount > 0) {
-        toast.success(t('invoices.confirm_toast', {
-          ingredients: ingredientCount,
-          recipes: recipeCount,
-        }))
-      }
-      navigate('/dashboard/invoices')
-    } else {
-      toast.error(t('invoices.confirm_error'))
-    }
+    if (ok) navigate('/dashboard/invoices')
   }
 
   if (!invoiceId) return null

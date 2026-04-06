@@ -32,16 +32,12 @@ export default function Login() {
 
   const onSubmit = async (data: FormData) => {
     setAuthError(null)
-    const { data: authData, error } = await supabase.auth.signInWithPassword(data)
+    const { error } = await supabase.auth.signInWithPassword(data)
     if (error) {
       setAuthError(t('auth.error.invalid_credentials'))
       return
     }
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('id')
-      .eq('id', authData.user!.id)
-      .single()
+    const { data: profile } = await supabase.from('profiles').select('id').single()
     navigate(profile ? '/dashboard' : '/onboarding', { replace: true })
   }
 

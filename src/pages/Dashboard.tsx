@@ -8,7 +8,7 @@ import {
   Truck,
   FileText,
   TrendingUp,
-  Receipt,
+  Percent,
   LogOut,
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
@@ -29,7 +29,7 @@ export default function Dashboard() {
   const { signOut } = useAuth()
   const { profile } = useProfile()
 
-  const vatItem: NavItem = { to: '/dashboard/vat', label: 'nav.vat', icon: Receipt }
+  const vatItem: NavItem = { to: '/dashboard/vat', label: 'nav.vat', icon: Percent }
   const navItems: NavItem[] = [
     { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
     { to: '/dashboard/recipes',     label: 'nav.recipes',     icon: BookOpen },
@@ -44,41 +44,45 @@ export default function Dashboard() {
     <div className="min-h-screen bg-bep-rice flex">
 
       {/* Sidebar */}
-      <aside className="w-[220px] bg-bep-surface border-r border-bep-pebble flex flex-col shrink-0">
-        <div className="px-5 py-4 border-b border-bep-pebble">
+      <aside className="w-[220px] md:w-[56px] lg:w-[220px] bg-bep-surface border-r border-bep-pebble flex flex-col shrink-0 transition-all">
+        <div className="px-5 py-4 md:px-3 md:py-3 lg:px-5 lg:py-4 border-b border-bep-pebble">
           <p className="font-ui text-xl font-medium text-bep-lacquer" style={{ letterSpacing: '-0.02em' }}>Bếp</p>
           {profile && (
-            <p className="text-xs text-bep-stone mt-0.5 truncate">{profile.business_name}</p>
+            <p className="text-xs text-bep-stone mt-0.5 truncate md:hidden lg:block">{profile.business_name}</p>
           )}
         </div>
 
-        <nav className="flex-1 px-3 py-3 flex flex-col gap-0.5">
+        <nav className="flex-1 px-3 py-3 md:px-1 lg:px-3 flex flex-col gap-0.5">
           {navItems.map(({ to, label, icon: Icon, end }) => (
             <NavLink
               key={to}
               to={to}
               end={end}
+              title={t(label)}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
-                  isActive
-                    ? 'bg-bep-cream text-bep-turmeric font-medium'
-                    : 'text-bep-stone hover:bg-bep-cream hover:text-bep-turmeric'
-                }`
+                `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
+                 md:justify-center md:gap-0 md:px-0 md:py-3
+                 lg:justify-start lg:gap-3 lg:px-3 lg:py-2.5
+                 ${isActive
+                   ? 'bg-bep-cream text-bep-turmeric font-medium'
+                   : 'text-bep-stone hover:bg-bep-cream hover:text-bep-turmeric'
+                 }`
               }
             >
               <Icon size={16} />
-              <span>{t(label)}</span>
+              <span className="md:hidden lg:inline">{t(label)}</span>
             </NavLink>
           ))}
         </nav>
 
-        <div className="px-3 py-3 border-t border-bep-pebble">
+        <div className="px-3 py-3 md:px-1 lg:px-3 border-t border-bep-pebble">
           <button
             onClick={signOut}
-            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm text-bep-stone hover:bg-bep-cream hover:text-bep-turmeric transition-colors"
+            title={t('common.sign_out')}
+            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm text-bep-stone hover:bg-bep-cream hover:text-bep-turmeric transition-colors md:justify-center md:gap-0 md:px-0 md:py-3 lg:justify-start lg:gap-3 lg:px-3 lg:py-2.5"
           >
             <LogOut size={16} />
-            <span>{t('common.sign_out')}</span>
+            <span className="md:hidden lg:inline">{t('common.sign_out')}</span>
           </button>
         </div>
       </aside>

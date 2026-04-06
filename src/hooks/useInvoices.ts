@@ -55,15 +55,15 @@ export function useInvoices() {
       line_total:     number
     }>,
     totalAmount: number,
-  ): Promise<{ ok: boolean; error?: string }> {
-    if (!user) return { ok: false, error: 'Not authenticated' }
+  ): Promise<boolean> {
+    if (!user) return false
 
     // Insert all line items
     const lineRows = lines.map(l => ({ ...l, invoice_id: invoiceId, user_id: user.id }))
     const { error: linesError } = await supabase
       .from('invoice_lines')
       .insert(lineRows)
-    if (linesError) return { ok: false, error: linesError?.message ?? 'Unknown error' }
+    if (linesError) return false
 
     // Update invoice header
     const { error: invoiceError } = await supabase
@@ -75,24 +75,24 @@ export function useInvoices() {
         total_amount: totalAmount,
       })
       .eq('id', invoiceId)
-    if (invoiceError) return { ok: false, error: invoiceError?.message ?? 'Unknown error' }
+    if (invoiceError) return false
 
     await fetchInvoices()
-    return { ok: true }
+    return true
   }
 
-  async function deleteInvoice(id: string): Promise<{ ok: boolean; error?: string }> {
-    if (!user) return { ok: false, error: 'Not authenticated' }
+  async function deleteInvoice(id: string): Promise<boolean> {
+    if (!user) return false
     // Find storage key before deleting the record
     const invoice = invoices.find(i => i.id === id)
     const { error } = await supabase.from('invoices').delete().eq('id', id)
-    if (error) return { ok: false, error: error?.message ?? 'Unknown error' }
+    if (error) return false
     // Clean up Storage file
     if (invoice?.storage_key) {
       await supabase.storage.from('invoices').remove([invoice.storage_key])
     }
     setInvoices(prev => prev.filter(i => i.id !== id))
-    return { ok: true }
+    return true
   }
 
   return { invoices, loading, createPendingInvoice, confirmInvoice, deleteInvoice }

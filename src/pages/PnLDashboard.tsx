@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { toast } from 'sonner'
 import { usePnL } from '../hooks/usePnL'
 import { usePriceAlerts } from '../hooks/usePriceAlerts'
 import { PeriodSelector } from '../components/features/PeriodSelector'
@@ -23,7 +22,6 @@ export default function PnLDashboard() {
     const error = await dismissAlert(ingredientId)
     if (error) {
       setDismissErrors(prev => ({ ...prev, [ingredientId]: error }))
-      toast.error(t('dashboard.error.dismiss_failed'))
     }
   }
 

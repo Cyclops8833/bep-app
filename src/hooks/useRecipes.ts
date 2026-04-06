@@ -45,7 +45,7 @@ export function useRecipes() {
   useEffect(() => {
     if (!user) return
     const channel = supabase
-      .channel(`ingredient-price-watch-${user.id}`)
+      .channel('ingredient-price-watch')
       .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'ingredients' }, fetchRecipes)
       .subscribe()
     return () => { supabase.removeChannel(channel) }
@@ -55,10 +55,10 @@ export function useRecipes() {
     menuItem: MenuItemInput,
     lines: LineInput[],
     editingId?: string,
-  ): Promise<{ ok: boolean; error?: string }> => {
+  ): Promise<boolean> => {
     if (editingId) {
       const { error } = await supabase.from('menu_items').update(menuItem).eq('id', editingId)
-      if (error) return { ok: false, error: error?.message ?? 'Unknown error' }
+      if (error) return false
       await supabase.from('recipe_lines').delete().eq('menu_item_id', editingId)
       if (lines.length > 0) {
         await supabase.from('recipe_lines').insert(lines.map(l => ({ ...l, menu_item_id: editingId })))
@@ -69,7 +69,7 @@ export function useRecipes() {
         .insert({ ...menuItem, user_id: user!.id })
         .select()
         .single()
-      if (error || !data) return { ok: false, error: error?.message ?? 'Unknown error' }
+      if (error || !data) return false
       if (lines.length > 0) {
         await supabase.from('recipe_lines').insert(
           lines.map(l => ({ ...l, menu_item_id: (data as { id: string }).id }))
@@ -77,14 +77,14 @@ export function useRecipes() {
       }
     }
     await fetchRecipes()
-    return { ok: true }
+    return true
   }
 
-  const deleteRecipe = async (id: string): Promise<{ ok: boolean; error?: string }> => {
+  const deleteRecipe = async (id: string): Promise<boolean> => {
     const { error } = await supabase.from('menu_items').delete().eq('id', id)
-    if (error) return { ok: false, error: error?.message ?? 'Unknown error' }
+    if (error) return false
     setRecipes(prev => prev.filter(r => r.id !== id))
-    return { ok: true }
+    return true
   }
 
   return { recipes, loading, saveRecipe, deleteRecipe }
