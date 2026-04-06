@@ -243,7 +243,7 @@
     },
     "pricing": {
       "headline": "Know exactly what you're making — every day.",
-      "sub": "Bep Pro: 200,000 ₫/month. About three bowls of pho.",
+      "sub": "Bep Pro: 200,000 ₫/month. Less than one bowl of pho per week.",
       "free": {
         "name": "Free",
         "trial_badge": "14-day full trial",
@@ -260,7 +260,7 @@
         "badge": "Most popular",
         "price": "200,000 ₫",
         "period": "/month",
-        "pho_note": "About three bowls of pho per month",
+        "pho_note": "Less than one bowl of pho per week",
         "f1": "Unlimited recipes",
         "f2": "Unlimited ingredients",
         "f3": "Unlimited AI invoice captures",
@@ -270,38 +270,6 @@
       }
     }
   },
-  "revenue": {
-    "title": "Revenue",
-    "tab_lump": "Daily total",
-    "tab_dishes": "By dish",
-    "optional_label": "optional",
-    "date_label": "Date",
-    "amount_label": "Revenue (VND)",
-    "notes_label": "Notes",
-    "notes_placeholder": "Optional notes...",
-    "save_new": "Save revenue",
-    "save_edit": "Save changes",
-    "cancel_edit": "Discard changes",
-    "add_title": "Log revenue",
-    "edit_title": "Edit {{date}}",
-    "delete_confirm": "Delete this revenue entry?",
-    "summary_total": "30-day total",
-    "summary_days": "Days logged",
-    "summary_avg": "Daily average",
-    "col_dishes": "+ {{count}} dishes",
-    "missing_day": "No entry",
-    "empty_title": "No revenue yet",
-    "empty_body": "Log today's revenue to start tracking your profit.",
-    "quantity_label": "Qty sold",
-    "edit_entry": "Edit revenue entry",
-    "delete_entry": "Delete revenue entry",
-    "expand_dishes": "View dish breakdown",
-    "collapse_dishes": "Hide dish breakdown",
-    "error_save": "Could not save. Please try again.",
-    "error_delete": "Could not delete. Please try again.",
-    "validation_amount_required": "Revenue amount is required",
-    "validation_amount_positive": "Revenue must be greater than 0"
-  },
   "nav": {
     "dashboard": "Dashboard",
     "recipes": "Recipes",
@@ -310,56 +278,5 @@
     "invoices": "Invoices",
     "revenue": "Revenue",
     "vat": "VAT"
-  },
-  "dashboard": {
-    "title": "Overview",
-    "period": {
-      "today": "Today",
-      "this_week": "This week",
-      "this_month": "This month",
-      "last_month": "Last month",
-      "custom": "Custom",
-      "custom_error": "Maximum range is 90 days"
-    },
-    "metric": {
-      "revenue": "Revenue",
-      "costs": "Costs",
-      "net_profit": "Net Profit"
-    },
-    "health": {
-      "profitable": "Profitable",
-      "watch": "Watch this",
-      "loss": "At a loss",
-      "sentence": {
-        "profitable": "You're profitable this period",
-        "watch": "Keep an eye on costs",
-        "loss": "Costs exceed revenue"
-      }
-    },
-    "chart": {
-      "title": "Revenue trend"
-    },
-    "cost_intelligence": {
-      "title": "Cost intelligence",
-      "alerts_section": "Price alerts",
-      "drivers_section": "Top 3 cost drivers"
-    },
-    "alert": {
-      "price_rise": "+{{percent}}% this week",
-      "affected_dishes": "Affects: {{dishes}}",
-      "dismiss": "Dismiss alert"
-    },
-    "error": {
-      "fetch": "Could not load data. Please try again.",
-      "fetch_failed": "Could not load data. Please try again.",
-      "retry": "Retry",
-      "dismiss_failed": "Could not dismiss alert"
-    },
-    "empty": {
-      "no_data": "No data yet",
-      "no_data_body": "No revenue or costs recorded for this period. Add revenue or confirm an invoice.",
-      "no_drivers": "No confirmed invoices in this period.",
-      "no_cost_drivers": "No confirmed invoices in this period."
-    }
   }
 }

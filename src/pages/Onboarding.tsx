@@ -42,7 +42,7 @@ export default function Onboarding() {
     if (!user) return
     setSubmitting(true)
     setError(null)
-    const { error } = await supabase.from('profiles').upsert({ id: user.id, ...data })
+    const { error } = await supabase.from('profiles').insert({ id: user.id, ...data })
     if (error) {
       setError(t('auth.error.generic'))
       setSubmitting(false)

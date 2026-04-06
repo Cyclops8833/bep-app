@@ -11,6 +11,7 @@ export interface Profile {
   language_pref: LanguagePref
   created_at: string
   dashboard_period?: string
+  mst: string | null
 }
 
 export interface Supplier {
@@ -124,64 +125,15 @@ export type ExtractionSuccess = { ok: true; data: ExtractedInvoice }
 export type ExtractionFailure = { ok: false; fallback: true; error: string }
 export type ExtractionResponse = ExtractionSuccess | ExtractionFailure
 
-// --- Revenue Entry (Phase 6) ---
+// --- VAT Summary (Phase 8) ---
 
-export interface RevenueEntry {
-  id:              string
-  user_id:         string
-  entry_date:      string        // ISO date 'YYYY-MM-DD'
-  lump_sum_amount: number
-  notes:           string | null
-  created_at:      string
-  updated_at:      string
-  revenue_entry_dishes?: RevenueEntryDish[]
+export interface VATMonth {
+  year: number   // e.g. 2026
+  month: number  // 1-12
 }
 
-export interface RevenueEntryDish {
-  id:               string
-  revenue_entry_id: string
-  recipe_id:        string
-  user_id:          string
-  quantity:         number
-  created_at:       string
-  menu_items?:      { id: string; name: string }
+export interface VATData {
+  inputVAT: number    // 10% of confirmed invoice line_total sum
+  outputVAT: number   // 10% of revenue_entries lump_sum_amount sum
+  netVAT: number      // outputVAT - inputVAT
 }
-
-export type RevenueEntryInput = Pick<RevenueEntry, 'entry_date' | 'lump_sum_amount' | 'notes'>
-
-export type DishInput = {
-  recipe_id: string
-  quantity:  number
-}
-
-// --- P&L Dashboard (Phase 7) ---
-
-export type PnLPeriod = 'today' | 'this_week' | 'this_month' | 'last_month' | { start: string; end: string }
-
-export interface PnLMetrics {
-  revenue: number
-  costs: number
-  netProfit: number
-  netMargin: number  // (netProfit / revenue) * 100, or 0 if revenue === 0
-}
-
-export interface DailyPoint {
-  date: string  // 'YYYY-MM-DD'
-  revenue: number
-  cost: number
-}
-
-export interface CostDriver {
-  ingredientId: string
-  name: string
-  totalSpend: number
-}
-
-export interface PriceAlert {
-  ingredientId: string
-  ingredientName: string
-  percentRise: number
-  affectedDishes: { name: string; margin: number }[]
-}
-
-export type HealthTier = 'profitable' | 'watch' | 'loss'
