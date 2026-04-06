@@ -351,7 +351,9 @@
     },
     "error": {
       "fetch": "Could not load data. Please try again.",
-      "retry": "Retry"
+      "fetch_failed": "Could not load data. Please try again.",
+      "retry": "Retry",
+      "dismiss_failed": "Could not dismiss alert"
     },
     "empty": {
       "no_data": "No data yet",
