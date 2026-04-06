@@ -4,7 +4,7 @@ import { Check } from 'lucide-react'
 
 function InvoiceIllustration() {
   return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-9 h-9">
+    <svg viewBox="0 0 40 40" fill="none" className="w-12 h-12">
       {/* Receipt */}
       <rect x="4" y="4" width="22" height="30" rx="2.5" fill="#FEF3C7" stroke="#B45309" strokeWidth="1.5"/>
       <line x1="9" y1="12" x2="22" y2="12" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.45"/>
@@ -23,7 +23,7 @@ function InvoiceIllustration() {
 
 function DishIllustration() {
   return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-9 h-9">
+    <svg viewBox="0 0 40 40" fill="none" className="w-12 h-12">
       {/* Steam */}
       <path d="M14 16 Q12.5 13 14 10 Q15.5 7 14 4" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4"/>
       <path d="M20 15 Q18.5 12 20 9 Q21.5 6 20 3" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4"/>
@@ -40,7 +40,7 @@ function DishIllustration() {
 
 function MarginIllustration() {
   return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-9 h-9">
+    <svg viewBox="0 0 40 40" fill="none" className="w-12 h-12">
       {/* Area fill */}
       <path d="M3 36 L3 26 L11 21 L20 17 L28 12 L34 9 L34 36 Z" fill="#FEF3C7"/>
       {/* Trend line */}

@@ -14,7 +14,7 @@
     "or": "or",
     "login": {
       "title": "Log in",
-      "subtitle": "Welcome back to Bep",
+      "subtitle": "Welcome back to Bếp",
       "email": "Email",
       "password": "Password",
       "submit": "Log in",
@@ -75,7 +75,7 @@
       "vi": "Vietnamese",
       "en": "English"
     },
-    "finish": "Get started with Bep"
+    "finish": "Get started with Bếp"
   },
   "recipes": {
     "title": "Recipes",
@@ -163,7 +163,7 @@
     "manual_entry": "Enter manually",
     "history_heading": "Invoice history",
     "empty_title": "No invoices yet",
-    "empty_body": "Photograph a supplier invoice — Bep will read it and update ingredient prices automatically.",
+    "empty_body": "Photograph a supplier invoice — Bếp will read it and update ingredient prices automatically.",
     "status_pending": "Pending review",
     "status_confirmed": "Confirmed",
     "col_date": "Date",
@@ -198,7 +198,7 @@
     "hero": {
       "tagline": "Good food deserves good numbers.",
       "tagline_en": "Good food deserves good numbers.",
-      "body": "Bep shows Vietnamese café and restaurant owners exactly what each dish costs, what it earns, and whether this month is worth it.",
+      "body": "Bếp shows Vietnamese café and restaurant owners exactly what each dish costs, what it earns, and whether this month is worth it.",
       "cta_signup": "Try free",
       "cta_login": "Log in"
     },
@@ -206,11 +206,11 @@
       "heading": "Everything you need to run a profitable kitchen",
       "invoice": {
         "title": "AI invoice capture",
-        "body": "Photograph a supplier invoice and Bep reads the items, quantities, and prices automatically — updating your ingredient costs in real time."
+        "body": "Photograph a supplier invoice and Bếp reads the items, quantities, and prices automatically — updating your ingredient costs in real time."
       },
       "recipe": {
         "title": "Automatic dish costing",
-        "body": "Build recipes with ingredients and quantities. Bep calculates actual cost using your latest ingredient prices, always up to date."
+        "body": "Build recipes with ingredients and quantities. Bếp calculates actual cost using your latest ingredient prices, always up to date."
       },
       "margin": {
         "title": "Margin health tracking",
@@ -246,11 +246,11 @@
       "reason": "Not because business was bad. Because they didn't know which dishes were losing money.",
       "example_label": "Real example",
       "example": "A dish selling 40 bowls a day with margin down from 30% to 10% because pork prices rose — you're losing 160,000 ₫ daily without knowing it.",
-      "reframe": "Bep Pro costs 6,600 ₫ per day. Far less than that invisible loss."
+      "reframe": "Bếp Pro costs 6,600 ₫ per day. Far less than that invisible loss."
     },
     "pricing": {
       "headline": "Know exactly what you're making — every day.",
-      "sub": "Bep Pro: 200,000 ₫/month. About three bowls of pho.",
+      "sub": "Bếp Pro: 200,000 ₫/month. About three bowls of pho.",
       "free": {
         "name": "Free",
         "trial_badge": "14-day full trial",

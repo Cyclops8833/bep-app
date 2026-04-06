@@ -163,7 +163,7 @@
     "manual_entry": "Nhập thủ công",
     "history_heading": "Lịch sử hoá đơn",
     "empty_title": "Chưa có hoá đơn nào",
-    "empty_body": "Chụp ảnh hoá đơn từ nhà cung cấp — Bep sẽ đọc và cập nhật giá nguyên liệu tự động.",
+    "empty_body": "Chụp ảnh hoá đơn từ nhà cung cấp — Bếp sẽ đọc và cập nhật giá nguyên liệu tự động.",
     "status_pending": "Chờ xác nhận",
     "status_confirmed": "Đã xác nhận",
     "col_date": "Ngày",
@@ -246,11 +246,11 @@
       "reason": "Không phải vì kinh doanh kém. Mà vì không biết món nào đang lỗ.",
       "example_label": "Ví dụ thực tế",
       "example": "Một món bán 40 tô/ngày, biên lợi nhuận giảm từ 30% xuống 10% vì giá thịt tăng — bạn đang mất 160.000 ₫ mỗi ngày mà không hay biết.",
-      "reframe": "Bep Pro tốn 6.600 ₫/ngày. Ít hơn nhiều so với khoản lỗ vô hình đó."
+      "reframe": "Bếp Pro tốn 6.600 ₫/ngày. Ít hơn nhiều so với khoản lỗ vô hình đó."
     },
     "pricing": {
       "headline": "Biết chính xác bạn đang kiếm được bao nhiêu — mỗi ngày.",
-      "sub": "Bep Pro: 200.000 ₫/tháng. Bằng giá 3 tô phở.",
+      "sub": "Bếp Pro: 200.000 ₫/tháng. Bằng giá 3 tô phở.",
       "free": {
         "name": "Miễn phí",
         "trial_badge": "14 ngày dùng thử đầy đủ",
