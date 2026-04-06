@@ -143,6 +143,10 @@
     "empty_body": "Thêm nguyên liệu để bắt đầu tính giá thành món ăn",
     "delete_confirm": "Xoá nguyên liệu này?"
   },
+  "errors": {
+    "save_failed": "Lưu không thành công. Vui lòng thử lại.",
+    "delete_failed": "Xoá không thành công. Vui lòng thử lại."
+  },
   "invoices": {
     "title": "Hoá đơn",
     "upload_heading": "Chụp hoặc tải lên hoá đơn",

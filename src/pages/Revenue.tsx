@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -210,14 +211,14 @@ function RevenueForm({ editing, entries, recipes, onSave, onCancel, formRef }: R
       const existing = entries.find(e => e.entry_date === data.entry_date)
       if (existing) {
         const ok = await onSave(data, selectedDishes, existing.id)
-        if (!ok) setSaveError(true)
+        if (!ok) { setSaveError(true); toast.error(t('errors.save_failed')) }
         setSaving(false)
         return
       }
     }
 
     const ok = await onSave(data, selectedDishes, editing?.id)
-    if (!ok) setSaveError(true)
+    if (!ok) { setSaveError(true); toast.error(t('errors.save_failed')) }
     setSaving(false)
   }
 
@@ -551,7 +552,8 @@ export default function Revenue() {
 
   const handleDelete = async (entry: RevenueEntry) => {
     if (!window.confirm(t('revenue.delete_confirm'))) return
-    await deleteEntry(entry.id)
+    const ok = await deleteEntry(entry.id)
+    if (!ok) toast.error(t('errors.delete_failed'))
   }
 
   const handleSave = async (

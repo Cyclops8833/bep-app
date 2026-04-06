@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 import { FormProvider, useForm, useFormContext } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -212,12 +213,15 @@ export default function Recipes() {
     setSaving(false)
     if (result.ok) {
       closeDrawer()
+    } else {
+      toast.error(t('errors.save_failed'))
     }
   })
 
   const handleDelete = async (r: MenuItemWithCost) => {
     if (!window.confirm(t('recipes.delete_confirm'))) return
-    await deleteRecipe(r.id)
+    const result = await deleteRecipe(r.id)
+    if (!result.ok) toast.error(t('errors.delete_failed'))
   }
 
   return (

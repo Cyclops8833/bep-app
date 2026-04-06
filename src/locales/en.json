@@ -143,6 +143,10 @@
     "empty_body": "Add ingredients to start costing your recipes",
     "delete_confirm": "Delete this ingredient?"
   },
+  "errors": {
+    "save_failed": "Save failed. Please try again.",
+    "delete_failed": "Delete failed. Please try again."
+  },
   "invoices": {
     "title": "Invoices",
     "upload_heading": "Capture or upload an invoice",

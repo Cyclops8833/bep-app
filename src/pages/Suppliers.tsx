@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -97,15 +98,20 @@ export default function Suppliers() {
   const closeDrawer = () => setDrawerOpen(false)
 
   const handleSave = async (data: { name: string; phone: string | null; notes: string | null }) => {
-    const ok = editing
+    const result = editing
       ? await updateSupplier(editing.id, data)
       : await addSupplier(data)
-    if (ok) closeDrawer()
+    if (result.ok) {
+      closeDrawer()
+    } else {
+      toast.error(t('errors.save_failed'))
+    }
   }
 
   const handleDelete = async (s: Supplier) => {
     if (!window.confirm(t('suppliers.delete_confirm'))) return
-    await deleteSupplier(s.id)
+    const result = await deleteSupplier(s.id)
+    if (!result.ok) toast.error(t('errors.delete_failed'))
   }
 
   return (
