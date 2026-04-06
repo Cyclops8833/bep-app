@@ -190,7 +190,9 @@
     "col_line_total": "Total",
     "create_new_ingredient": "+ Create new ingredient",
     "no_lines_extracted": "No lines could be extracted. You can still confirm the supplier details.",
-    "confirm_save": "Confirm and save"
+    "confirm_save": "Confirm and save",
+    "confirm_toast": "{{ingredients}} ingredient prices updated — {{recipes}} recipes recalculated.",
+    "confirm_error": "Invoice confirmation failed. Please try again."
   },
   "landing": {
     "hero": {

@@ -190,7 +190,9 @@
     "col_line_total": "Thành tiền",
     "create_new_ingredient": "+ Tạo nguyên liệu mới",
     "no_lines_extracted": "Không trích xuất được dòng nào. Bạn có thể xác nhận thông tin nhà cung cấp.",
-    "confirm_save": "Xác nhận và lưu"
+    "confirm_save": "Xác nhận và lưu",
+    "confirm_toast": "{{ingredients}} giá nguyên liệu đã cập nhật — {{recipes}} công thức đã tính lại.",
+    "confirm_error": "Xác nhận hoá đơn thất bại. Vui lòng thử lại."
   },
   "landing": {
     "hero": {
