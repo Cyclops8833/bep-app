@@ -96,8 +96,8 @@
     "selling_price": "Giá bán",
     "margin_label": "Biên lợi nhuận",
     "cost_label": "Chi phí",
-    "empty_title": "Chưa có món ăn",
-    "empty_body": "Thêm món ăn để tính giá thành và biên lợi nhuận",
+    "empty_title": "Chưa có món ăn nào",
+    "empty_body": "Thêm món đầu tiên để xem lãi gộp của từng món.",
     "delete_confirm": "Xoá món ăn này?",
     "no_ingredients_warning": "Thêm ít nhất 1 nguyên liệu",
     "select_ingredient": "Chọn nguyên liệu..."
@@ -119,8 +119,8 @@
     "col_name": "Tên",
     "col_phone": "Điện thoại",
     "col_notes": "Ghi chú",
-    "empty_title": "Chưa có nhà cung cấp",
-    "empty_body": "Thêm nhà cung cấp để liên kết với nguyên liệu và hoá đơn",
+    "empty_title": "Chưa có nhà cung cấp nào",
+    "empty_body": "Thêm nhà cung cấp để theo dõi nguồn hàng.",
     "delete_confirm": "Xoá nhà cung cấp này?"
   },
   "ingredients": {
@@ -139,9 +139,13 @@
     "col_price": "Giá",
     "col_supplier": "Nhà cung cấp",
     "col_history": "Lịch sử giá",
-    "empty_title": "Chưa có nguyên liệu",
-    "empty_body": "Thêm nguyên liệu để bắt đầu tính giá thành món ăn",
+    "empty_title": "Chưa có nguyên liệu nào",
+    "empty_body": "Thêm nguyên liệu đầu tiên để tính giá thành món ăn.",
     "delete_confirm": "Xoá nguyên liệu này?"
+  },
+  "errors": {
+    "save_failed": "Lưu không thành công. Vui lòng thử lại.",
+    "delete_failed": "Xoá không thành công. Vui lòng thử lại."
   },
   "invoices": {
     "title": "Hoá đơn",
@@ -159,7 +163,7 @@
     "manual_entry": "Nhập thủ công",
     "history_heading": "Lịch sử hoá đơn",
     "empty_title": "Chưa có hoá đơn nào",
-    "empty_body": "Chụp ảnh hoá đơn từ nhà cung cấp để tự động cập nhật giá nguyên liệu.",
+    "empty_body": "Chụp ảnh hoá đơn từ nhà cung cấp — Bep sẽ đọc và cập nhật giá nguyên liệu tự động.",
     "status_pending": "Chờ xác nhận",
     "status_confirmed": "Đã xác nhận",
     "col_date": "Ngày",
@@ -186,7 +190,9 @@
     "col_line_total": "Thành tiền",
     "create_new_ingredient": "+ Tạo nguyên liệu mới",
     "no_lines_extracted": "Không trích xuất được dòng nào. Bạn có thể xác nhận thông tin nhà cung cấp.",
-    "confirm_save": "Xác nhận và lưu"
+    "confirm_save": "Xác nhận và lưu",
+    "confirm_toast": "{{ingredients}} giá nguyên liệu đã cập nhật — {{recipes}} công thức đã tính lại.",
+    "confirm_error": "Xác nhận hoá đơn thất bại. Vui lòng thử lại."
   },
   "landing": {
     "hero": {
@@ -290,8 +296,8 @@
     "summary_avg": "Trung bình mỗi ngày",
     "col_dishes": "+ {{count}} món",
     "missing_day": "Chưa có dữ liệu",
-    "empty_title": "Chưa có doanh thu",
-    "empty_body": "Nhập doanh thu hôm nay để bắt đầu theo dõi lợi nhuận.",
+    "empty_title": "Chưa có doanh thu nào được ghi nhận",
+    "empty_body": "Nhập doanh thu hôm nay để bắt đầu.",
     "quantity_label": "Số lượng bán",
     "edit_entry": "Sửa mục doanh thu",
     "delete_entry": "Xoá mục doanh thu",

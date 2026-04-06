@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 import { Info } from 'lucide-react'
 import { useProfile } from '../hooks/useProfile'
 import { useVAT } from '../hooks/useVAT'
@@ -29,6 +30,7 @@ function MSTPrompt({ onSaved }: { onSaved: () => void }) {
 
     if (updateError) {
       setError(t('vat.mst_prompt_error'))
+      toast.error(t('errors.save_failed'))
       setSaving(false)
     } else {
       onSaved()

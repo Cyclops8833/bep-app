@@ -37,7 +37,12 @@ export default function Login() {
       setAuthError(t('auth.error.invalid_credentials'))
       return
     }
-    const { data: profile } = await supabase.from('profiles').select('id').single()
+    const { data: authData } = await supabase.auth.getUser()
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('id', authData.user!.id)
+      .single()
     navigate(profile ? '/dashboard' : '/onboarding', { replace: true })
   }
 

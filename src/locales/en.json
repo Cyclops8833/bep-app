@@ -96,8 +96,8 @@
     "selling_price": "Selling price",
     "margin_label": "Gross margin",
     "cost_label": "Cost",
-    "empty_title": "No recipes yet",
-    "empty_body": "Add a recipe to start calculating dish costs and margins",
+    "empty_title": "No dishes yet",
+    "empty_body": "Add your first dish to see your margins.",
     "delete_confirm": "Delete this recipe?",
     "no_ingredients_warning": "Add at least 1 ingredient",
     "select_ingredient": "Select ingredient..."
@@ -120,7 +120,7 @@
     "col_phone": "Phone",
     "col_notes": "Notes",
     "empty_title": "No suppliers yet",
-    "empty_body": "Add a supplier to link to ingredients and invoices",
+    "empty_body": "Add a supplier to track your stock sources.",
     "delete_confirm": "Delete this supplier?"
   },
   "ingredients": {
@@ -140,8 +140,12 @@
     "col_supplier": "Supplier",
     "col_history": "Price history",
     "empty_title": "No ingredients yet",
-    "empty_body": "Add ingredients to start costing your recipes",
+    "empty_body": "Add your first ingredient to calculate dish costs.",
     "delete_confirm": "Delete this ingredient?"
+  },
+  "errors": {
+    "save_failed": "Save failed. Please try again.",
+    "delete_failed": "Delete failed. Please try again."
   },
   "invoices": {
     "title": "Invoices",
@@ -159,7 +163,7 @@
     "manual_entry": "Enter manually",
     "history_heading": "Invoice history",
     "empty_title": "No invoices yet",
-    "empty_body": "Capture a supplier invoice photo to automatically update ingredient prices.",
+    "empty_body": "Photograph a supplier invoice — Bep will read it and update ingredient prices automatically.",
     "status_pending": "Pending review",
     "status_confirmed": "Confirmed",
     "col_date": "Date",
@@ -186,7 +190,9 @@
     "col_line_total": "Total",
     "create_new_ingredient": "+ Create new ingredient",
     "no_lines_extracted": "No lines could be extracted. You can still confirm the supplier details.",
-    "confirm_save": "Confirm and save"
+    "confirm_save": "Confirm and save",
+    "confirm_toast": "{{ingredients}} ingredient prices updated — {{recipes}} recipes recalculated.",
+    "confirm_error": "Invoice confirmation failed. Please try again."
   },
   "landing": {
     "hero": {
@@ -290,8 +296,8 @@
     "summary_avg": "Daily average",
     "col_dishes": "+ {{count}} dishes",
     "missing_day": "No entry",
-    "empty_title": "No revenue yet",
-    "empty_body": "Log today's revenue to start tracking your profit.",
+    "empty_title": "No revenue logged yet",
+    "empty_body": "Enter today's revenue to get started.",
     "quantity_label": "Qty sold",
     "edit_entry": "Edit revenue entry",
     "delete_entry": "Delete revenue entry",

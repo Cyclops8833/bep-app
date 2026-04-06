@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -124,15 +125,20 @@ export default function Ingredients() {
     current_price: number
     supplier_id: string | null
   }) => {
-    const ok = editing
+    const result = editing
       ? await updateIngredient(editing.id, { ...data, supplier_id: data.supplier_id || null })
       : await addIngredient({ ...data, supplier_id: data.supplier_id || null })
-    if (ok) closeDrawer()
+    if (result.ok) {
+      closeDrawer()
+    } else {
+      toast.error(t('errors.save_failed'))
+    }
   }
 
   const handleDelete = async (i: IngredientWithRelations) => {
     if (!window.confirm(t('ingredients.delete_confirm'))) return
-    await deleteIngredient(i.id)
+    const result = await deleteIngredient(i.id)
+    if (!result.ok) toast.error(t('errors.delete_failed'))
   }
 
   return (
@@ -148,8 +154,8 @@ export default function Ingredients() {
       </div>
 
       {loading ? (
-        <div className="animate-pulse flex flex-col gap-3">
-          {[1, 2, 3].map(i => <div key={i} className="h-12 bg-bep-pebble rounded-lg" />)}
+        <div className="animate-pulse flex flex-col gap-2">
+          {[1, 2, 3, 4, 5].map(i => <div key={i} className="h-10 bg-bep-pebble rounded w-full" />)}
         </div>
       ) : ingredients.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 text-center">

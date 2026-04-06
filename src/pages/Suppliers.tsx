@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -97,15 +98,20 @@ export default function Suppliers() {
   const closeDrawer = () => setDrawerOpen(false)
 
   const handleSave = async (data: { name: string; phone: string | null; notes: string | null }) => {
-    const ok = editing
+    const result = editing
       ? await updateSupplier(editing.id, data)
       : await addSupplier(data)
-    if (ok) closeDrawer()
+    if (result.ok) {
+      closeDrawer()
+    } else {
+      toast.error(t('errors.save_failed'))
+    }
   }
 
   const handleDelete = async (s: Supplier) => {
     if (!window.confirm(t('suppliers.delete_confirm'))) return
-    await deleteSupplier(s.id)
+    const result = await deleteSupplier(s.id)
+    if (!result.ok) toast.error(t('errors.delete_failed'))
   }
 
   return (
@@ -121,8 +127,8 @@ export default function Suppliers() {
       </div>
 
       {loading ? (
-        <div className="animate-pulse flex flex-col gap-3">
-          {[1, 2, 3].map(i => <div key={i} className="h-12 bg-bep-pebble rounded-lg" />)}
+        <div className="animate-pulse flex flex-col gap-2">
+          {[1, 2, 3, 4, 5].map(i => <div key={i} className="h-10 bg-bep-pebble rounded w-full" />)}
         </div>
       ) : suppliers.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 text-center">

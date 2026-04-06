@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
 import { Camera, Upload, FileText, Trash2, Eye } from 'lucide-react'
 import { supabase } from '../lib/supabase'
@@ -99,7 +100,8 @@ export default function Invoices() {
 
   async function handleDelete(id: string) {
     if (!window.confirm(t('invoices.delete_confirm'))) return
-    await deleteInvoice(id)
+    const result = await deleteInvoice(id)
+    if (!result.ok) toast.error(t('errors.delete_failed'))
   }
 
   return (
@@ -196,9 +198,9 @@ export default function Invoices() {
 
         {loading && (
           <div className="animate-pulse flex flex-col gap-2">
-            <div className="h-10 bg-bep-pebble rounded w-full" />
-            <div className="h-10 bg-bep-pebble rounded w-full" />
-            <div className="h-10 bg-bep-pebble rounded w-3/4" />
+            {[1, 2, 3, 4, 5].map(i => (
+              <div key={i} className="h-12 bg-bep-pebble rounded w-full" />
+            ))}
           </div>
         )}
 
