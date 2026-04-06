@@ -19,29 +19,29 @@ export function useSuppliers() {
 
   useEffect(() => { fetchSuppliers() }, [fetchSuppliers])
 
-  const addSupplier = async (values: SupplierInput): Promise<boolean> => {
+  const addSupplier = async (values: SupplierInput): Promise<{ ok: boolean; error?: string }> => {
     const { data, error } = await supabase
       .from('suppliers')
       .insert({ ...values, user_id: user!.id })
       .select()
       .single()
-    if (error || !data) return false
+    if (error || !data) return { ok: false, error: error?.message ?? 'Unknown error' }
     setSuppliers(prev => [...prev, data as Supplier].sort((a, b) => a.name.localeCompare(b.name)))
-    return true
+    return { ok: true }
   }
 
-  const updateSupplier = async (id: string, values: SupplierInput): Promise<boolean> => {
+  const updateSupplier = async (id: string, values: SupplierInput): Promise<{ ok: boolean; error?: string }> => {
     const { error } = await supabase.from('suppliers').update(values).eq('id', id)
-    if (error) return false
+    if (error) return { ok: false, error: error?.message ?? 'Unknown error' }
     setSuppliers(prev => prev.map(s => s.id === id ? { ...s, ...values } : s))
-    return true
+    return { ok: true }
   }
 
-  const deleteSupplier = async (id: string): Promise<boolean> => {
+  const deleteSupplier = async (id: string): Promise<{ ok: boolean; error?: string }> => {
     const { error } = await supabase.from('suppliers').delete().eq('id', id)
-    if (error) return false
+    if (error) return { ok: false, error: error?.message ?? 'Unknown error' }
     setSuppliers(prev => prev.filter(s => s.id !== id))
-    return true
+    return { ok: true }
   }
 
   return { suppliers, loading, addSupplier, updateSupplier, deleteSupplier }

@@ -27,21 +27,28 @@ export function useIngredients() {
 
   useEffect(() => { fetchIngredients() }, [fetchIngredients])
 
-  const addIngredient = async (values: IngredientInput): Promise<boolean> => {
+  const addIngredient = async (values: IngredientInput): Promise<{ ok: boolean; error?: string }> => {
     const { data, error } = await supabase
       .from('ingredients')
       .insert({ ...values, user_id: user!.id })
       .select('*, suppliers(id, name), ingredient_price_history(price, recorded_at)')
       .single()
-    if (error || !data) return false
+    if (error || !data) return { ok: false, error: error?.message ?? 'Unknown error' }
     setIngredients(prev => [...prev, data as IngredientWithRelations].sort((a, b) => a.name.localeCompare(b.name)))
-    return true
+    return { ok: true }
   }
 
-  const updateIngredient = async (id: string, values: IngredientInput): Promise<boolean> => {
+  const updateIngredient = async (id: string, values: IngredientInput): Promise<{ ok: boolean; error?: string }> => {
     const current = ingredients.find(i => i.id === id)
 
-    // Record new price to history if price changed
+    // Run the update first
+    const { error } = await supabase
+      .from('ingredients')
+      .update({ ...values, updated_at: new Date().toISOString() })
+      .eq('id', id)
+    if (error) return { ok: false, error: error?.message ?? 'Unknown error' }
+
+    // Only record price history AFTER successful update, and only when price changed
     if (current && values.current_price !== current.current_price) {
       await supabase.from('ingredient_price_history').insert({
         ingredient_id: id,
@@ -49,21 +56,15 @@ export function useIngredients() {
       })
     }
 
-    const { error } = await supabase
-      .from('ingredients')
-      .update({ ...values, updated_at: new Date().toISOString() })
-      .eq('id', id)
-    if (error) return false
-
     await fetchIngredients()
-    return true
+    return { ok: true }
   }
 
-  const deleteIngredient = async (id: string): Promise<boolean> => {
+  const deleteIngredient = async (id: string): Promise<{ ok: boolean; error?: string }> => {
     const { error } = await supabase.from('ingredients').delete().eq('id', id)
-    if (error) return false
+    if (error) return { ok: false, error: error?.message ?? 'Unknown error' }
     setIngredients(prev => prev.filter(i => i.id !== id))
-    return true
+    return { ok: true }
   }
 
   return { ingredients, loading, addIngredient, updateIngredient, deleteIngredient }
