@@ -197,6 +197,7 @@
   "landing": {
     "hero": {
       "tagline": "Good food deserves good numbers.",
+      "tagline_en": "Good food deserves good numbers.",
       "body": "Bep shows Vietnamese café and restaurant owners exactly what each dish costs, what it earns, and whether this month is worth it.",
       "cta_signup": "Try free",
       "cta_login": "Log in"
