@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Onboarding from './pages/Onboarding'
 import Dashboard from './pages/Dashboard'
+import VATSummaryPrint from './pages/VATSummaryPrint'
 
 export default function App() {
   return (
@@ -16,6 +17,14 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/onboarding" element={<Onboarding />} />
+          <Route
+            path="/dashboard/vat/print"
+            element={
+              <ProtectedRoute>
+                <VATSummaryPrint />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/dashboard/*"
             element={
