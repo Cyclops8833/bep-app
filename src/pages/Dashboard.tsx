@@ -17,16 +17,7 @@ import Ingredients from './Ingredients'
 import Recipes from './Recipes'
 import Invoices from './Invoices'
 import InvoiceConfirm from './InvoiceConfirm'
-
-const navItems = [
-  { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
-  { to: '/dashboard/recipes',     label: 'nav.recipes',     icon: BookOpen },
-  { to: '/dashboard/invoices',    label: 'nav.invoices',    icon: FileText },    // D-11: position 3
-  { to: '/dashboard/suppliers',   label: 'nav.suppliers',   icon: Truck },
-  { to: '/dashboard/ingredients', label: 'nav.ingredients', icon: Package },
-  { to: '/dashboard/revenue',     label: 'nav.revenue',     icon: TrendingUp },
-  { to: '/dashboard/vat',         label: 'nav.vat',         icon: Receipt },
-]
+import VATPage from './VATPage'
 
 function Placeholder({ labelKey }: { labelKey: string }) {
   const { t } = useTranslation()
@@ -42,6 +33,17 @@ export default function Dashboard() {
   const { t } = useTranslation()
   const { signOut } = useAuth()
   const { profile } = useProfile()
+
+  const vatItem = { to: '/dashboard/vat', label: 'nav.vat', icon: Receipt }
+  const navItems = [
+    { to: '/dashboard',             label: 'nav.dashboard',   icon: LayoutDashboard, end: true },
+    { to: '/dashboard/recipes',     label: 'nav.recipes',     icon: BookOpen },
+    { to: '/dashboard/invoices',    label: 'nav.invoices',    icon: FileText },
+    { to: '/dashboard/suppliers',   label: 'nav.suppliers',   icon: Truck },
+    { to: '/dashboard/ingredients', label: 'nav.ingredients', icon: Package },
+    { to: '/dashboard/revenue',     label: 'nav.revenue',     icon: TrendingUp },
+    ...(profile?.vat_registered ? [vatItem] : []),
+  ]
 
   return (
     <div className="min-h-screen bg-bep-rice flex">
@@ -96,7 +98,7 @@ export default function Dashboard() {
           <Route path="invoices"         element={<Invoices />} />
           <Route path="invoices/confirm" element={<InvoiceConfirm />} />
           <Route path="revenue"     element={<Placeholder labelKey="nav.revenue" />} />
-          <Route path="vat"         element={<Placeholder labelKey="nav.vat" />} />
+          <Route path="vat"         element={<VATPage />} />
         </Routes>
       </main>
 

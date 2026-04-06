@@ -278,5 +278,32 @@
     "invoices": "Invoices",
     "revenue": "Revenue",
     "vat": "VAT"
+  },
+  "vat": {
+    "title": "VAT Summary",
+    "export_pdf": "Export PDF",
+    "period_label": "Tax period",
+    "month_label": "Month",
+    "year_label": "Year",
+    "input_vat_primary": "VAT paid to suppliers",
+    "input_vat_secondary": "Input VAT — confirmed invoices only",
+    "output_vat_primary": "VAT collected from customers",
+    "output_vat_secondary": "Output VAT — based on revenue entries",
+    "net_vat_primary": "VAT payable to tax authority",
+    "net_vat_secondary": "Net VAT payable",
+    "disclaimer": "This is an estimate based on your entered data. Consult an accountant before lodging.",
+    "mst_prompt_title": "Enter your tax code",
+    "mst_prompt_body": "Your tax code will appear on your VAT report PDF.",
+    "mst_prompt_label": "Tax code (MST)",
+    "mst_prompt_placeholder": "e.g. 0123456789",
+    "mst_prompt_save": "Save MST",
+    "mst_prompt_error": "Could not save tax code. Please try again.",
+    "empty_heading": "No data for this month",
+    "empty_body": "Add revenue entries and confirm invoices to calculate VAT.",
+    "error_fetch": "Could not load VAT data. Please try again.",
+    "error_retry": "Retry",
+    "print_period": "{{month}} / {{year}}",
+    "print_generated": "Generated: {{date}}",
+    "print_mst_label": "MST"
   }
 }

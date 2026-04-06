@@ -278,5 +278,32 @@
     "invoices": "Hoá đơn",
     "revenue": "Doanh thu",
     "vat": "Thuế VAT"
+  },
+  "vat": {
+    "title": "Thuế VAT",
+    "export_pdf": "Xuất PDF",
+    "period_label": "Kỳ tính thuế",
+    "month_label": "Tháng",
+    "year_label": "Năm",
+    "input_vat_primary": "VAT bạn đã trả cho nhà cung cấp",
+    "input_vat_secondary": "Input VAT — từ hoá đơn đã xác nhận",
+    "output_vat_primary": "VAT thu từ khách hàng",
+    "output_vat_secondary": "Output VAT — dựa trên doanh thu đã nhập",
+    "net_vat_primary": "Số VAT cần nộp cho cơ quan thuế",
+    "net_vat_secondary": "Net VAT payable",
+    "disclaimer": "Đây là ước tính dựa trên dữ liệu bạn đã nhập. Vui lòng tham khảo kế toán trước khi nộp thuế.",
+    "mst_prompt_title": "Nhập mã số thuế của bạn",
+    "mst_prompt_body": "Mã số thuế sẽ xuất hiện trên PDF báo cáo VAT của bạn.",
+    "mst_prompt_label": "Mã số thuế (MST)",
+    "mst_prompt_placeholder": "Ví dụ: 0123456789",
+    "mst_prompt_save": "Lưu MST",
+    "mst_prompt_error": "Không thể lưu MST. Vui lòng thử lại.",
+    "empty_heading": "Chưa có dữ liệu cho tháng này",
+    "empty_body": "Thêm doanh thu và xác nhận hoá đơn để tính VAT.",
+    "error_fetch": "Không thể tải dữ liệu VAT. Vui lòng thử lại.",
+    "error_retry": "Thử lại",
+    "print_period": "Tháng {{month}} / {{year}}",
+    "print_generated": "Ngày xuất: {{date}}",
+    "print_mst_label": "MST"
   }
 }
