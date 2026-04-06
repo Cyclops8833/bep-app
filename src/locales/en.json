@@ -203,18 +203,18 @@
       "cta_login": "Log in"
     },
     "features": {
-      "heading": "Everything you need to run a profitable kitchen",
+      "heading": "Your kitchen, your numbers.",
       "invoice": {
         "title": "AI invoice capture",
         "body": "Photograph a supplier invoice and Bếp reads the items, quantities, and prices automatically — updating your ingredient costs in real time."
       },
       "recipe": {
         "title": "Automatic dish costing",
-        "body": "Build recipes with ingredients and quantities. Bếp calculates actual cost using your latest ingredient prices, always up to date."
+        "body": "Build recipes with ingredients and quantities. Bếp calculates the actual cost of every dish using your latest prices, always current."
       },
       "margin": {
         "title": "Margin health tracking",
-        "body": "See instantly which dishes are profitable and which need attention. When ingredient prices change, margins update immediately."
+        "body": "See instantly which dishes are profitable and which need attention. When prices change, margins update immediately."
       }
     },
     "how": {
@@ -245,34 +245,34 @@
       "heading": "In 2024, 60% of Vietnamese F&B businesses struggled with profitability — despite the market growing 16%.",
       "reason": "Not because business was bad. Because they didn't know which dishes were losing money.",
       "example_label": "Real example",
-      "example": "A dish selling 40 bowls a day with margin down from 30% to 10% because pork prices rose — you're losing 160,000 ₫ daily without knowing it.",
-      "reframe": "Bếp Pro costs 6,600 ₫ per day. Far less than that invisible loss."
+      "example": "A cafe selling 40 bowls of pho a day. Pork prices rise quietly. Margin drops from 30% to 10%. That's 160,000 ₫ lost every single day — invisible, until it isn't.",
+      "reframe": "Bếp Pro costs 6,600 ₫ per day."
     },
     "pricing": {
-      "headline": "Know exactly what you're making — every day.",
-      "sub": "Bếp Pro: 200,000 ₫/month. About three bowls of pho.",
+      "headline": "Simple, honest pricing.",
+      "sub": "Three bowls of pho.",
       "free": {
         "name": "Free",
         "trial_badge": "14-day full trial",
         "price": "0 ₫",
-        "after_trial": "After 14 days, limited to:",
+        "after_trial": "After that, free forever with:",
         "f1": "10 recipes",
         "f2": "20 ingredients",
-        "f3": "10 AI invoice captures/month",
+        "f3": "10 AI invoice captures / month",
         "f4": "Current month reporting",
-        "cta": "Start free 14-day trial"
+        "cta": "Start free"
       },
       "pro": {
         "name": "Pro",
         "badge": "Most popular",
         "price": "200,000 ₫",
         "period": "/month",
-        "pho_note": "About three bowls of pho per month",
+        "pho_note": "Three bowls of pho.",
         "f1": "Unlimited recipes",
         "f2": "Unlimited ingredients",
         "f3": "Unlimited AI invoice captures",
         "f4": "Full reporting history",
-        "f5": "VAT report export (PDF)",
+        "f5": "VAT summary + PDF export",
         "cta": "Start Pro"
       }
     }

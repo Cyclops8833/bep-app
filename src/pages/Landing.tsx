@@ -295,7 +295,7 @@ export default function Landing() {
           >
             {t('common.app_name')}
           </span>
-          <span className="text-xs text-bep-stone">© 2026</span>
+          <span className="text-xs text-bep-stone">© 2026 Northset Advisory</span>
         </div>
       </footer>
 
