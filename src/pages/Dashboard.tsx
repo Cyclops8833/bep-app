@@ -17,6 +17,8 @@ import Ingredients from './Ingredients'
 import Recipes from './Recipes'
 import Invoices from './Invoices'
 import InvoiceConfirm from './InvoiceConfirm'
+import Revenue from './Revenue'
+import PnLDashboard from './PnLDashboard'
 import VATPage from './VATPage'
 
 function Placeholder({ labelKey }: { labelKey: string }) {
@@ -91,13 +93,13 @@ export default function Dashboard() {
       {/* Content */}
       <main className="flex-1 min-w-0">
         <Routes>
-          <Route index element={<Placeholder labelKey="nav.dashboard" />} />
+          <Route index element={<PnLDashboard />} />
           <Route path="recipes"     element={<Recipes />} />
           <Route path="ingredients" element={<Ingredients />} />
           <Route path="suppliers"   element={<Suppliers />} />
           <Route path="invoices"         element={<Invoices />} />
           <Route path="invoices/confirm" element={<InvoiceConfirm />} />
-          <Route path="revenue"     element={<Placeholder labelKey="nav.revenue" />} />
+          <Route path="revenue"     element={<Revenue />} />
           <Route path="vat"         element={<VATPage />} />
         </Routes>
       </main>
