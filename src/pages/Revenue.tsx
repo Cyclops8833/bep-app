@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { ChevronDown, ChevronUp, Pencil, Trash2, TrendingUp } from 'lucide-react'
+import { ChevronRight, ChevronDown, Pencil, Trash2, TrendingUp } from 'lucide-react'
 import { useRevenue } from '../hooks/useRevenue'
 import { useRecipes } from '../hooks/useRecipes'
 import { formatVND, formatVNDShort } from '../lib/format'
@@ -85,7 +85,6 @@ function DishTileGrid({ recipes, selectedDishes, onToggle }: DishTileGridProps) 
               <span className="leading-tight">{recipe.name}</span>
               {isSelected && (
                 <div className="mt-2" onClick={e => e.stopPropagation()}>
-                  <p className="text-xs text-bep-stone mb-1">{t('revenue.quantity_label')}</p>
                   <div className="flex items-center gap-1">
                     <input
                       type="number"
@@ -95,12 +94,12 @@ function DishTileGrid({ recipes, selectedDishes, onToggle }: DishTileGridProps) 
                         const v = parseInt(e.target.value, 10)
                         if (!isNaN(v) && v > 0) onToggle(recipe.id, v)
                       }}
-                      className="w-14 text-center text-xs border-none bg-transparent focus:outline-none font-mono tabular-nums"
+                      className="w-full text-center text-sm font-semibold border border-bep-turmeric bg-white rounded px-2 py-1 font-mono tabular-nums focus:outline-none"
                     />
                     <button
                       type="button"
                       onClick={() => onToggle(recipe.id, null)}
-                      className="text-bep-stone hover:text-bep-loss text-xs ml-auto transition-colors"
+                      className="text-bep-stone hover:text-bep-loss text-lg leading-none transition-colors px-1"
                     >
                       ×
                     </button>
@@ -121,7 +120,7 @@ interface RevenueFormProps {
   editing:        RevenueEntry | null
   entries:        RevenueEntry[]
   recipes:        MenuItemWithCost[]
-  onSave:         (values: RevenueFormValues, dishes: Map<string, number>, editingId?: string) => Promise<void>
+  onSave:         (values: RevenueFormValues, dishes: Map<string, number>, editingId?: string) => Promise<boolean>
   onCancel:       () => void
   formRef:        React.RefObject<HTMLDivElement>
 }
@@ -138,6 +137,7 @@ function RevenueForm({ editing, entries, recipes, onSave, onCancel, formRef }: R
     handleSubmit,
     reset,
     watch,
+    setValue,
     formState: { errors },
   } = useForm<RevenueFormValues>({
     resolver: zodResolver(revenueSchema),
@@ -153,6 +153,17 @@ function RevenueForm({ editing, entries, recipes, onSave, onCancel, formRef }: R
     e => e.entry_date === watchedDate && e.id !== editing?.id
   )
   const hasSavedEntryForDate = entries.some(e => e.entry_date === watchedDate)
+
+  // When the selected date already has an entry, pre-fill the amount so
+  // the form validates even if the user is on the "By dish" tab
+  useEffect(() => {
+    if (editing) return
+    const existing = entries.find(e => e.entry_date === watchedDate)
+    if (existing) {
+      setValue('lump_sum_amount', existing.lump_sum_amount)
+      setValue('notes', existing.notes ?? '')
+    }
+  }, [watchedDate, entries, editing, setValue])
 
   useEffect(() => {
     if (editing) {
@@ -198,13 +209,15 @@ function RevenueForm({ editing, entries, recipes, onSave, onCancel, formRef }: R
     if (!editing && hasEntryForDate) {
       const existing = entries.find(e => e.entry_date === data.entry_date)
       if (existing) {
-        await onSave(data, selectedDishes, existing.id)
+        const ok = await onSave(data, selectedDishes, existing.id)
+        if (!ok) setSaveError(true)
         setSaving(false)
         return
       }
     }
 
-    await onSave(data, selectedDishes, editing?.id)
+    const ok = await onSave(data, selectedDishes, editing?.id)
+    if (!ok) setSaveError(true)
     setSaving(false)
   }
 
@@ -419,7 +432,7 @@ function EntryRow({ entry, onEdit, onDelete }: EntryRowProps) {
               aria-label={expanded ? t('revenue.collapse_dishes') : t('revenue.expand_dishes')}
               className="text-bep-stone hover:text-bep-turmeric transition-colors"
             >
-              {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+              {expanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
             </button>
           )}
           <button
@@ -442,12 +455,12 @@ function EntryRow({ entry, onEdit, onDelete }: EntryRowProps) {
       </div>
 
       {expanded && hasDishes && (
-        <div className="bg-bep-rice border-b border-bep-pebble/50">
-          <ul className="text-xs text-bep-stone pl-8 py-2 flex flex-col gap-1">
+        <div className="bg-bep-cream border-b border-bep-turmeric/20 px-4 py-2">
+          <ul className="flex flex-col gap-1.5">
             {entry.revenue_entry_dishes!.map(dish => (
-              <li key={dish.id} className="flex items-center gap-2">
-                <span>{dish.menu_items?.name ?? dish.recipe_id}</span>
-                <span className="font-mono tabular-nums text-bep-charcoal">× {dish.quantity}</span>
+              <li key={dish.id} className="flex items-center justify-between text-sm">
+                <span className="text-bep-charcoal">{dish.menu_items?.name ?? dish.recipe_id}</span>
+                <span className="font-mono tabular-nums text-bep-turmeric font-semibold">× {dish.quantity}</span>
               </li>
             ))}
           </ul>
@@ -545,7 +558,7 @@ export default function Revenue() {
     values: RevenueFormValues,
     dishes: Map<string, number>,
     editingId?: string,
-  ) => {
+  ): Promise<boolean> => {
     const dishInputs = Array.from(dishes.entries()).map(([recipe_id, quantity]) => ({
       recipe_id,
       quantity,
@@ -557,13 +570,12 @@ export default function Revenue() {
       notes:           values.notes ?? null,
     }
 
-    if (editingId) {
-      await updateEntry(editingId, entryInput, dishInputs)
-    } else {
-      await addEntry(entryInput, dishInputs)
-    }
+    const ok = editingId
+      ? await updateEntry(editingId, entryInput, dishInputs)
+      : await addEntry(entryInput, dishInputs)
 
-    setEditing(null)
+    if (ok) setEditing(null)
+    return ok
   }
 
   return (
