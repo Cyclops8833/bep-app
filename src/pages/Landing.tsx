@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { Camera, ChefHat, TrendingUp, Check } from 'lucide-react'
 
 export default function Landing() {
-  const { i18n } = useTranslation()
-  const t = i18n.getFixedT('vi')
+  const { t, i18n } = useTranslation()
+  const isVi = i18n.language === 'vi' || i18n.language.startsWith('vi')
 
   const freeFeatures = ['f1', 'f2', 'f3', 'f4'] as const
   const proFeatures = ['f1', 'f2', 'f3', 'f4', 'f5'] as const
@@ -22,6 +22,12 @@ export default function Landing() {
             {t('common.app_name')}
           </span>
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => i18n.changeLanguage(isVi ? 'en' : 'vi')}
+              className="text-xs font-medium text-bep-stone hover:text-bep-turmeric transition-colors border border-bep-pebble rounded px-2 py-1"
+            >
+              {isVi ? 'EN' : 'VI'}
+            </button>
             <Link
               to="/login"
               className="text-sm font-medium text-bep-stone hover:text-bep-turmeric transition-colors"
