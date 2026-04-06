@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useForm } from 'react-hook-form'
+import { FormProvider, useForm, useFormContext } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { BookOpen, Trash2 } from 'lucide-react'
@@ -25,24 +25,15 @@ interface LineState {
 }
 
 function RecipeForm({
-  editing,
   lines,
   setLines,
 }: {
-  editing: MenuItemWithCost | null
   lines: LineState[]
   setLines: React.Dispatch<React.SetStateAction<LineState[]>>
 }) {
   const { t } = useTranslation()
   const { ingredients } = useIngredients()
-  const { register, formState: { errors } } = useForm<MenuItemForm>({
-    resolver: zodResolver(menuItemSchema),
-    defaultValues: {
-      name:          editing?.name          ?? '',
-      selling_price: editing?.selling_price ?? 0,
-      category:      editing?.category      ?? '',
-    },
-  })
+  const { register, formState: { errors } } = useFormContext<MenuItemForm>()
 
   const addLine = () => {
     const first = ingredients.find(i => !lines.some(l => l.ingredient_id === i.id))
@@ -186,10 +177,16 @@ export default function Recipes() {
   const [lineError, setLineError] = useState(false)
   const [saving, setSaving] = useState(false)
 
+  const methods = useForm<MenuItemForm>({
+    resolver: zodResolver(menuItemSchema),
+    defaultValues: { name: '', selling_price: 0, category: '' },
+  })
+
   const openAdd = () => {
     setEditing(null)
     setLines([])
     setLineError(false)
+    methods.reset({ name: '', selling_price: 0, category: '' })
     setDrawerOpen(true)
   }
 
@@ -197,29 +194,26 @@ export default function Recipes() {
     setEditing(r)
     setLines(r.recipe_lines.map(l => ({ ingredient_id: l.ingredient_id, quantity: l.quantity })))
     setLineError(false)
+    methods.reset({ name: r.name, selling_price: r.selling_price, category: r.category ?? '' })
     setDrawerOpen(true)
   }
 
   const closeDrawer = () => setDrawerOpen(false)
 
-  const handleSave = async () => {
+  const handleSave = methods.handleSubmit(async (data) => {
     if (lines.length === 0) { setLineError(true); return }
     setLineError(false)
     setSaving(true)
-
-    // Get values from form DOM
-    const form = document.getElementById('recipe-form') as HTMLFormElement
-    const formData = new FormData(form)
-    const name = (formData.get('name') as string).trim()
-    const selling_price = parseFloat(formData.get('selling_price') as string)
-    const category = (formData.get('category') as string).trim() || null
-
-    if (!name || !selling_price) { setSaving(false); return }
-
-    const ok = await saveRecipe({ name, selling_price, category }, lines, editing?.id)
+    const result = await saveRecipe(
+      { name: data.name, selling_price: data.selling_price, category: data.category ?? null },
+      lines,
+      editing?.id,
+    )
     setSaving(false)
-    if (ok) closeDrawer()
-  }
+    if (result.ok) {
+      closeDrawer()
+    }
+  })
 
   const handleDelete = async (r: MenuItemWithCost) => {
     if (!window.confirm(t('recipes.delete_confirm'))) return
@@ -261,7 +255,7 @@ export default function Recipes() {
       ) : (
         <div className="grid grid-cols-3 gap-3">
           {recipes.map(r => (
-            <div key={r.id} className="bg-bep-surface border border-bep-pebble rounded-xl p-4 flex flex-col">
+            <div key={r.id} className="bg-bep-surface border border-bep-pebble flex flex-col rounded-xl p-4">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-bep-charcoal truncate">{r.name}</p>
@@ -300,35 +294,37 @@ export default function Recipes() {
         </div>
       )}
 
-      <Drawer
-        open={drawerOpen}
-        onClose={closeDrawer}
-        title={editing ? t('recipes.edit') : t('recipes.add')}
-        footer={
+      <FormProvider {...methods}>
+        <Drawer
+          open={drawerOpen}
+          onClose={closeDrawer}
+          title={editing ? t('recipes.edit') : t('recipes.add')}
+          footer={
+            <>
+              <button
+                onClick={closeDrawer}
+                className="bg-transparent border border-bep-pebble hover:border-bep-turmeric hover:text-bep-turmeric text-bep-stone text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+              >
+                {t('common.cancel')}
+              </button>
+              <button
+                onClick={handleSave}
+                disabled={saving}
+                className="bg-bep-lacquer hover:bg-bep-turmeric text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors disabled:opacity-50"
+              >
+                {saving ? t('common.loading') : t('common.save')}
+              </button>
+            </>
+          }
+        >
           <>
-            <button
-              onClick={closeDrawer}
-              className="bg-transparent border border-bep-pebble hover:border-bep-turmeric hover:text-bep-turmeric text-bep-stone text-sm font-medium px-4 py-2 rounded-lg transition-colors"
-            >
-              {t('common.cancel')}
-            </button>
-            <button
-              onClick={handleSave}
-              disabled={saving}
-              className="bg-bep-lacquer hover:bg-bep-turmeric text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors disabled:opacity-50"
-            >
-              {saving ? t('common.loading') : t('common.save')}
-            </button>
+            <RecipeForm lines={lines} setLines={setLines} />
+            {lineError && (
+              <p className="text-sm text-bep-loss">{t('recipes.no_ingredients_warning')}</p>
+            )}
           </>
-        }
-      >
-        <>
-          <RecipeForm editing={editing} lines={lines} setLines={setLines} />
-          {lineError && (
-            <p className="text-sm text-bep-loss">{t('recipes.no_ingredients_warning')}</p>
-          )}
-        </>
-      </Drawer>
+        </Drawer>
+      </FormProvider>
     </div>
   )
 }
