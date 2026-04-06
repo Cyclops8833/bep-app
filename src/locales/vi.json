@@ -310,5 +310,53 @@
     "invoices": "Hoá đơn",
     "revenue": "Doanh thu",
     "vat": "Thuế VAT"
+  },
+  "dashboard": {
+    "title": "Tổng quan",
+    "period": {
+      "today": "Hôm nay",
+      "this_week": "Tuần này",
+      "this_month": "Tháng này",
+      "last_month": "Tháng trước",
+      "custom": "Tùy chỉnh",
+      "custom_error": "Khoảng thời gian tối đa là 90 ngày"
+    },
+    "metric": {
+      "revenue": "Doanh thu",
+      "costs": "Chi phí",
+      "net_profit": "Lợi nhuận"
+    },
+    "health": {
+      "profitable": "Có lãi",
+      "watch": "Cần chú ý",
+      "loss": "Đang lỗ",
+      "sentence": {
+        "profitable": "Bạn đang có lãi tháng này",
+        "watch": "Cần chú ý chi phí",
+        "loss": "Chi phí vượt doanh thu"
+      }
+    },
+    "chart": {
+      "title": "Xu hướng doanh thu"
+    },
+    "cost_intelligence": {
+      "title": "Chi phí nổi bật",
+      "alerts_section": "Cảnh báo giá",
+      "drivers_section": "Top 3 chi phí cao nhất"
+    },
+    "alert": {
+      "price_rise": "+{{percent}}% tuần này",
+      "affected_dishes": "Ảnh hưởng: {{dishes}}",
+      "dismiss": "Bỏ qua cảnh báo này"
+    },
+    "error": {
+      "fetch": "Không thể tải dữ liệu. Vui lòng thử lại.",
+      "retry": "Thử lại"
+    },
+    "empty": {
+      "no_data": "Chưa có dữ liệu",
+      "no_data_body": "Chưa có doanh thu hoặc chi phí nào trong kỳ này. Hãy thêm doanh thu hoặc xác nhận hóa đơn.",
+      "no_drivers": "Chưa có hóa đơn được xác nhận trong kỳ này."
+    }
   }
 }

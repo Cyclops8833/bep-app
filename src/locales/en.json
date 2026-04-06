@@ -310,5 +310,53 @@
     "invoices": "Invoices",
     "revenue": "Revenue",
     "vat": "VAT"
+  },
+  "dashboard": {
+    "title": "Overview",
+    "period": {
+      "today": "Today",
+      "this_week": "This week",
+      "this_month": "This month",
+      "last_month": "Last month",
+      "custom": "Custom",
+      "custom_error": "Maximum range is 90 days"
+    },
+    "metric": {
+      "revenue": "Revenue",
+      "costs": "Costs",
+      "net_profit": "Net Profit"
+    },
+    "health": {
+      "profitable": "Profitable",
+      "watch": "Watch this",
+      "loss": "At a loss",
+      "sentence": {
+        "profitable": "You're profitable this period",
+        "watch": "Keep an eye on costs",
+        "loss": "Costs exceed revenue"
+      }
+    },
+    "chart": {
+      "title": "Revenue trend"
+    },
+    "cost_intelligence": {
+      "title": "Cost intelligence",
+      "alerts_section": "Price alerts",
+      "drivers_section": "Top 3 cost drivers"
+    },
+    "alert": {
+      "price_rise": "+{{percent}}% this week",
+      "affected_dishes": "Affects: {{dishes}}",
+      "dismiss": "Dismiss alert"
+    },
+    "error": {
+      "fetch": "Could not load data. Please try again.",
+      "retry": "Retry"
+    },
+    "empty": {
+      "no_data": "No data yet",
+      "no_data_body": "No revenue or costs recorded for this period. Add revenue or confirm an invoice.",
+      "no_drivers": "No confirmed invoices in this period."
+    }
   }
 }
