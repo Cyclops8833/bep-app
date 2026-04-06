@@ -243,7 +243,7 @@
     },
     "pricing": {
       "headline": "Know exactly what you're making — every day.",
-      "sub": "Bep Pro: 200,000 ₫/month. Less than one bowl of pho per week.",
+      "sub": "Bep Pro: 200,000 ₫/month. About three bowls of pho.",
       "free": {
         "name": "Free",
         "trial_badge": "14-day full trial",
@@ -260,7 +260,7 @@
         "badge": "Most popular",
         "price": "200,000 ₫",
         "period": "/month",
-        "pho_note": "Less than one bowl of pho per week",
+        "pho_note": "About three bowls of pho per month",
         "f1": "Unlimited recipes",
         "f2": "Unlimited ingredients",
         "f3": "Unlimited AI invoice captures",
