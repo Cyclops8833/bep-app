@@ -196,8 +196,9 @@
   },
   "landing": {
     "hero": {
-      "tagline": "Quản lý bếp. Hiểu rõ lợi nhuận.",
-      "body": "Bếp giúp chủ quán café và nhà hàng Việt Nam theo dõi chi phí nguyên liệu, tính giá thành món ăn và nắm rõ biên lợi nhuận — tất cả trong một công cụ đơn giản.",
+      "tagline": "Món ngon xứng đáng có những con số tốt.",
+      "tagline_en": "Good food deserves good numbers.",
+      "body": "Bếp giúp chủ quán biết chính xác từng món tốn bao nhiêu, kiếm được bao nhiêu — và tháng này có xứng công không.",
       "cta_signup": "Dùng thử miễn phí",
       "cta_login": "Đăng nhập"
     },

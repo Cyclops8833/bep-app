@@ -1,6 +1,63 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Camera, ChefHat, TrendingUp, Check } from 'lucide-react'
+import { Check } from 'lucide-react'
+
+function InvoiceIllustration() {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" className="w-9 h-9">
+      {/* Receipt */}
+      <rect x="4" y="4" width="22" height="30" rx="2.5" fill="#FEF3C7" stroke="#B45309" strokeWidth="1.5"/>
+      <line x1="9" y1="12" x2="22" y2="12" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.45"/>
+      <line x1="9" y1="17" x2="18" y2="17" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.45"/>
+      <line x1="9" y1="22" x2="22" y2="22" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.45"/>
+      {/* Camera body overlapping bottom-right */}
+      <rect x="20" y="22" width="16" height="12" rx="2.5" fill="#7C2D12"/>
+      {/* Camera bump */}
+      <rect x="23" y="19.5" width="5" height="3.5" rx="1" fill="#7C2D12"/>
+      {/* Lens */}
+      <circle cx="28" cy="28" r="3.5" stroke="#FEF3C7" strokeWidth="1.5"/>
+      <circle cx="28" cy="28" r="1.5" fill="#FEF3C7"/>
+    </svg>
+  )
+}
+
+function DishIllustration() {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" className="w-9 h-9">
+      {/* Steam */}
+      <path d="M14 16 Q12.5 13 14 10 Q15.5 7 14 4" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4"/>
+      <path d="M20 15 Q18.5 12 20 9 Q21.5 6 20 3" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4"/>
+      <path d="M26 16 Q24.5 13 26 10 Q27.5 7 26 4" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4"/>
+      {/* Bowl */}
+      <path d="M6 20 C6 29 12 35 20 35 C28 35 34 29 34 20 Z" fill="#FEF3C7" stroke="#B45309" strokeWidth="1.5"/>
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* ₫ price badge */}
+      <circle cx="33" cy="11" r="6.5" fill="#B45309"/>
+      <text x="33" y="14.5" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#FEF3C7" fontFamily="sans-serif">₫</text>
+    </svg>
+  )
+}
+
+function MarginIllustration() {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" className="w-9 h-9">
+      {/* Area fill */}
+      <path d="M3 36 L3 26 L11 21 L20 17 L28 12 L34 9 L34 36 Z" fill="#FEF3C7"/>
+      {/* Trend line */}
+      <polyline points="3,26 11,21 20,17 28,12 34,9" stroke="#B45309" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Baseline */}
+      <line x1="3" y1="36" x2="34" y2="36" stroke="#B45309" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.25"/>
+      {/* Data points */}
+      <circle cx="3" cy="26" r="2.5" fill="#B45309"/>
+      <circle cx="11" cy="21" r="2.5" fill="#B45309"/>
+      <circle cx="20" cy="17" r="2.5" fill="#B45309"/>
+      <circle cx="28" cy="12" r="2.5" fill="#B45309"/>
+      {/* Final point — green success */}
+      <circle cx="34" cy="9" r="5.5" fill="#059669"/>
+      <polyline points="31.5,9 33.5,11 36.5,6.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
 
 export default function Landing() {
   const { t, i18n } = useTranslation()
@@ -48,9 +105,14 @@ export default function Landing() {
       <section className="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
         <h1
           className="text-4xl font-medium text-bep-charcoal mb-4"
-          style={{ letterSpacing: '-0.02em', lineHeight: 1.2 }}
+          style={{ letterSpacing: '-0.02em', lineHeight: 1.25 }}
         >
           {t('landing.hero.tagline')}
+          {isVi && (
+            <span className="block text-bep-stone font-normal mt-1">
+              {t('landing.hero.tagline_en')}
+            </span>
+          )}
         </h1>
         <p className="text-base text-bep-stone max-w-xl mx-auto mb-8 leading-relaxed">
           {t('landing.hero.body')}
@@ -103,8 +165,8 @@ export default function Landing() {
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
-            <div className="w-9 h-9 rounded-full bg-bep-cream flex items-center justify-center mb-4">
-              <Camera size={16} className="text-bep-turmeric" />
+            <div className="w-14 h-14 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
+              <InvoiceIllustration />
             </div>
             <h2 className="text-sm font-medium text-bep-charcoal mb-2">
               {t('landing.features.invoice.title')}
@@ -114,8 +176,8 @@ export default function Landing() {
             </p>
           </div>
           <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
-            <div className="w-9 h-9 rounded-full bg-bep-cream flex items-center justify-center mb-4">
-              <ChefHat size={16} className="text-bep-turmeric" />
+            <div className="w-14 h-14 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
+              <DishIllustration />
             </div>
             <h2 className="text-sm font-medium text-bep-charcoal mb-2">
               {t('landing.features.recipe.title')}
@@ -125,8 +187,8 @@ export default function Landing() {
             </p>
           </div>
           <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6">
-            <div className="w-9 h-9 rounded-full bg-bep-cream flex items-center justify-center mb-4">
-              <TrendingUp size={16} className="text-bep-turmeric" />
+            <div className="w-14 h-14 rounded-2xl bg-bep-cream flex items-center justify-center mb-5">
+              <MarginIllustration />
             </div>
             <h2 className="text-sm font-medium text-bep-charcoal mb-2">
               {t('landing.features.margin.title')}

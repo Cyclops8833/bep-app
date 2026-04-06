@@ -196,9 +196,9 @@
   },
   "landing": {
     "hero": {
-      "tagline": "Run your kitchen. Know your margins.",
-      "body": "Bep helps Vietnamese café and restaurant owners track ingredient costs, cost their dishes, and understand profit margins — all in one simple tool.",
-      "cta_signup": "Start for free",
+      "tagline": "Good food deserves good numbers.",
+      "body": "Bep shows Vietnamese café and restaurant owners exactly what each dish costs, what it earns, and whether this month is worth it.",
+      "cta_signup": "Try free",
       "cta_login": "Log in"
     },
     "features": {
