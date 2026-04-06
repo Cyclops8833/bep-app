@@ -14,6 +14,7 @@ export function useProfile() {
       setLoading(false)
       return
     }
+    setLoading(true)
     const { data } = await supabase
       .from('profiles')
       .select('*')
