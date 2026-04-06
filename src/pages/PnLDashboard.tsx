@@ -1,15 +1,29 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { usePnL } from '../hooks/usePnL'
+import { usePriceAlerts } from '../hooks/usePriceAlerts'
 import { PeriodSelector } from '../components/features/PeriodSelector'
 import { MetricCard } from '../components/features/MetricCard'
 import { HealthIndicator } from '../components/features/HealthIndicator'
+import { TrendChart } from '../components/features/TrendChart'
+import { CostIntelligenceCard } from '../components/features/CostIntelligenceCard'
+import { PriceAlertRow } from '../components/features/PriceAlertRow'
 import type { PnLPeriod } from '../types'
 
 export default function PnLDashboard() {
   const { t } = useTranslation()
   const [period, setPeriod] = useState<PnLPeriod | null>(null)
-  const { metrics, healthTier, loading, error, refetch } = usePnL(period)
+  const { metrics, healthTier, chartData, costDrivers, loading, error, refetch } = usePnL(period)
+  const { alerts, dismissAlert } = usePriceAlerts()
+
+  const [dismissErrors, setDismissErrors] = useState<Record<string, string | null>>({})
+
+  const handleDismiss = async (ingredientId: string) => {
+    const error = await dismissAlert(ingredientId)
+    if (error) {
+      setDismissErrors(prev => ({ ...prev, [ingredientId]: error }))
+    }
+  }
 
   const isEmpty =
     !loading &&
@@ -88,12 +102,37 @@ export default function PnLDashboard() {
         )}
       </div>
 
-      {/* Lower grid — placeholder slots for Plan 03 */}
+      {/* Lower grid — TrendChart (left) + CostIntelligenceCard with alerts (right) */}
       <div className="grid grid-cols-[3fr_2fr] gap-6 mt-8">
-        {/* Chart card placeholder (Plan 03 replaces) */}
-        <div className="bg-bep-surface border border-bep-pebble rounded-xl p-6 h-[300px]" />
-        {/* Cost intelligence placeholder (Plan 03/04 replaces) */}
-        <div className="bg-bep-surface border border-bep-pebble rounded-xl p-4 h-[300px]" />
+        {/* Chart card — loading skeleton or real chart */}
+        {loading ? (
+          <div className="animate-pulse bg-bep-pebble rounded-xl h-[300px]" />
+        ) : (
+          <TrendChart data={chartData} />
+        )}
+
+        {/* Cost intelligence — loading skeleton or real card with alerts */}
+        {loading ? (
+          <div className="animate-pulse bg-bep-pebble rounded-xl h-[300px]" />
+        ) : (
+          <CostIntelligenceCard
+            costDrivers={costDrivers}
+            alerts={
+              alerts.length > 0 ? (
+                <>
+                  {alerts.map(a => (
+                    <PriceAlertRow
+                      key={a.ingredientId}
+                      alert={a}
+                      onDismiss={handleDismiss}
+                      dismissError={dismissErrors[a.ingredientId]}
+                    />
+                  ))}
+                </>
+              ) : undefined
+            }
+          />
+        )}
       </div>
     </div>
   )

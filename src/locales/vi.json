@@ -358,7 +358,8 @@
     "empty": {
       "no_data": "Chưa có dữ liệu",
       "no_data_body": "Chưa có doanh thu hoặc chi phí nào trong kỳ này. Hãy thêm doanh thu hoặc xác nhận hóa đơn.",
-      "no_drivers": "Chưa có hóa đơn được xác nhận trong kỳ này."
+      "no_drivers": "Chưa có hóa đơn được xác nhận trong kỳ này.",
+      "no_cost_drivers": "Chưa có hóa đơn được xác nhận trong kỳ này."
     }
   }
 }

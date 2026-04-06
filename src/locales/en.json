@@ -358,7 +358,8 @@
     "empty": {
       "no_data": "No data yet",
       "no_data_body": "No revenue or costs recorded for this period. Add revenue or confirm an invoice.",
-      "no_drivers": "No confirmed invoices in this period."
+      "no_drivers": "No confirmed invoices in this period.",
+      "no_cost_drivers": "No confirmed invoices in this period."
     }
   }
 }
