@@ -10,6 +10,7 @@ export interface Profile {
   vat_registered: boolean
   language_pref: LanguagePref
   created_at: string
+  dashboard_period?: string
 }
 
 export interface Supplier {
@@ -152,3 +153,35 @@ export type DishInput = {
   recipe_id: string
   quantity:  number
 }
+
+// --- P&L Dashboard (Phase 7) ---
+
+export type PnLPeriod = 'today' | 'this_week' | 'this_month' | 'last_month' | { start: string; end: string }
+
+export interface PnLMetrics {
+  revenue: number
+  costs: number
+  netProfit: number
+  netMargin: number  // (netProfit / revenue) * 100, or 0 if revenue === 0
+}
+
+export interface DailyPoint {
+  date: string  // 'YYYY-MM-DD'
+  revenue: number
+  cost: number
+}
+
+export interface CostDriver {
+  ingredientId: string
+  name: string
+  totalSpend: number
+}
+
+export interface PriceAlert {
+  ingredientId: string
+  ingredientName: string
+  percentRise: number
+  affectedDishes: { name: string; margin: number }[]
+}
+
+export type HealthTier = 'profitable' | 'watch' | 'loss'
